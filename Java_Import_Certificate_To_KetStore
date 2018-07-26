@@ -1,0 +1,9 @@
+#  Import a certificate into Java keystore file
+
+```
+$ keytool -import -alias foo -file certfile.cer -keystore publicKey.store
+```
+
+foo - Alias of the certificate
+certfile.cer - Exported certificate
+publicKey.store - import it into a public keystore
