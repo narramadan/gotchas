@@ -40,3 +40,9 @@
 ## Quick References
 
 `yarn add <git remote url>#<branch/commit/tag>` - installs a package from a remote git repository at specific git branch, git commit or git tag
+
+`yarn create <starter-kit-package>` - Creates new projects from any `create-*` starter kits. This is alternative to adding the package globally and invoking the package command.
+```
+yarn global add create-react-app
+create-react-app my-app
+```
