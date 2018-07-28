@@ -1,5 +1,8 @@
 # Yarn commands for reference
 
+## Install or Upgrade
+`npm install -g yarn` - To either install yarn globally or upgrade to the later version
+
 ## Handling Global Packages
 
 `yarn global` is the prefix to handle global packages
@@ -17,6 +20,10 @@
 ## Handling Local Packages
 
 `yarn add <package>` - Install
+
+`yarn upgrade --latest` - Upgrade all dependencies to their latest versions. This will only upgrade dependencies but not package.json
+
+`yarn upgrade-interactive --latest` - Upgrades all dependencies to their latest versions by confirming with the user for each dependency. This will onlu upgrade dependencies but not package.json
 
 `yarn upgrage <package> <package@version>` - Upgrade one or more packages with or without version
 
