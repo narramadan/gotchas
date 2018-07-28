@@ -19,6 +19,8 @@
 
 ## Handling Local Packages
 
+`yarn install` - Install dependencies listed in package.json
+
 `yarn add <package>` - Install
 
 `yarn upgrade --latest` - Upgrade all dependencies to their latest versions. This will only upgrade dependencies but not package.json
