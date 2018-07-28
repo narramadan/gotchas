@@ -1,6 +1,8 @@
-# Docker Commands For Reference
+# Docker Gotchas
 
 ~~~~ Work In Progress ~~~~
+
+## Commands
 
 `docker pull` - 
 
