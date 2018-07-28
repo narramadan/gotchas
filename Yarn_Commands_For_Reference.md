@@ -27,3 +27,7 @@
 `yarn list --depth=0|1|2` - List all packages with the specified depth of dependencies
 
 `yarn list --pattern <package|package>` - list packages with the specified pattern
+
+## Quick References
+
+`yarn add <git remote url>#<branch/commit/tag>` - installs a package from a remote git repository at specific git branch, git commit or git tag
