@@ -1,5 +1,14 @@
 # Git Commands for Reference
 
+## Setup
+
+For [Windows](https://git-scm.com/download/win)
+
+Which version of Git for Windows are you using? Is it 32-bit or 64-bit?
+```
+$ git --version --build-options
+```
+
 ## Configuration
 `git config --global user.name "<name of the user>"` - Configure global User Name
 
