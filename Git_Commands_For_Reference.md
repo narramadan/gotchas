@@ -43,4 +43,6 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 ## Stashing your work
 
-## 
+## Git Inteview Questions
+
+### Git Cherry Pick vs Rebase
