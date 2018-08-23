@@ -28,6 +28,7 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 `git init` - Initialize new local git repository in an existing folder
 
 ## Working with Changes
+`git add -u` - Consider files or folders deleted to be committed with `commit` and pushed with `push` commands
 
 ## See Commit History
 
