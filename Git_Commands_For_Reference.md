@@ -18,6 +18,18 @@ $ git --version --build-options
 
 Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gitconfig` on unix platforms in `.gitconfig` file.
 
+## Working with Git behind http proxy
+`git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:proxy.server.port` - Command to configure http proxy
+
+* change `proxyuser` to your proxy user
+* change `proxypwd` to your proxy password
+* change `proxy.server.com` to the URL of your proxy server
+* change `proxy.server.port` to the proxy port configured on your proxy server
+
+`git config --global --get http.proxy` - to verify if proxy is set correctly.
+
+`git config --global --unset http.proxy` - to remove the proxy configuration 
+
 ## Create
 `git clone <url>` - Clone a repository
 
