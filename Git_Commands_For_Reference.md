@@ -1,5 +1,9 @@
 # Git Commands for Reference
 
+* https://git-scm.com/docs
+* https://services.github.com/on-demand/github-cli/
+* https://makandracards.com/makandra?query=topic%3A%22Version+control%22
+
 ## Setup
 
 For [Windows](https://git-scm.com/download/win)
@@ -49,6 +53,37 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 ## Push changes to remote repository
 
 ## Working with Branches & Tags
+
+### Fetch
+`git fetch` - fetch branches and/or tags from one or more repositories
+
+`git fetch origin` - It copies all branches from the remote references and store them to the local references
+
+`git fetch -p` - Before fetching, it will remove any remote-tracking references that no longer exists on the remote.
+
+### List
+`git branch` - Lists down all branches available locally with * mapped to the current working branch
+
+`git branch -r` - Lists all remote branches 
+
+`git branch -a` - List all remote and local branches
+
+### Manage
+
+#### Create new Local Branch
+`git branch <local_branch_name>` - Create a new local branch
+
+`git checkout <branch_name>` - Switch to the selected branch
+
+#### Check out a remote branch
+`git fetch origin` - It copies all branches from the remote references and store them to the local references
+
+`git checkout <branch_name>` - Switch to the selected branch
+
+### Delete
+`git branch -d <branch_name>` - Delete a local branch
+
+`git push origin --delete <branch_name>` - Delete a remote branch
 
 ## Merging & Rebasing
 
