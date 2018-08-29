@@ -1,7 +1,7 @@
 # Maven Commands for Reference
 
 ## References
-* (Apache Maven)[http://maven.apache.org/guides/getting-started/index.html]
+* [Apache Maven](http://maven.apache.org/guides/getting-started/index.html)
 
 ## Usual Commands
 * `mvn clean` - Remove the target directory with all the build data before starting so that it is fresh
