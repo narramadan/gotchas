@@ -102,3 +102,139 @@ If all went well, the version should be displayed. Something like:
 ```
 SDKMAN 5.7.2+323
 ```
+## Setup Gradle
+Gradle can be installed and configured either via SDKMAN or manually. It is always preferrable to use SDKMAN as it eases the developer time and effort to switch to the appropriate version when different projects use different versions of gradle
+### Installation via SDKMAN
+Run the below command to install Gradle using SDKMAN Package Manager
+```
+# sdkman install gradle 4.10.1 
+```
+To use different version of Gradle say 4.4, Install the same using above and follow the commands below to list the current version that is being used, list all versions and set one of the available as default using SDKMAN
+```
+# sdk current gradle
+
+# sdk list gradle
+Lists all available versions with markings for all versions, what are installed and what is being currently used
+
+# sdk default gradle 4.4
+```
+If there is a new version of gradle is available and you wish to use it, run the following command to upgrade to it
+```
+sdk upgrade gradle
+```
+### Manual Installation
+* Download latest version from - https://gradle.org/releases
+* Unzip the distribution zip file in the directory of your choice
+```
+# mkdir /opt/gradle
+
+# unzip -d /opt/gradle gradle-4.10.1-bin.zip
+
+# ls /opt/gradle/gradle-4.10.1
+```
+* Configure PATH environment variable to include the `bin` directory
+```
+# export PATH=$PATH:/opt/gradle/gradle-4.10.1/bin
+```
+* Verify if gradle is configured correctly
+```
+# gradle -v
+```
+
+## Setup Maven
+```
+sdk install maven
+```
+
+## Setup Spring Boot
+Spring Boot CLI is a command line tool that can be used to quickly prototype with Spring. This will provide a quickest wat to get a Spring application kickstarted
+```
+sdk install springboot
+```
+
+## Setup Node
+Node can be installed using `nvm` Node Version Manager or manually.
+
+### Installation via NVM
+Follow the series of command to install node via nvm
+* Run `nvm` installer
+```
+# curl o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+The script clones the nvm repository to ~/.nvm and adds the source line to your profile (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc)
+```
+* Reload the shell
+```
+# source ~/.bashrc
+```
+* Verify if nvm is installed correctly
+```
+# command -v nvm
+```
+* List all versions of node that are installed
+```
+# nvm ls
+```
+* If none available, install specific version of nodejs
+```
+# nvm install v8.12.0
+```
+* Verify if Nodejs & NPM are installed correctly
+```
+# node -v
+
+# npm -v
+```
+* To use a different version of node during development
+```
+# npm use 8.6.0
+```
+* To uninstall a specific version if it is no longer needed
+```
+# nvm uninstall 8.6.0
+```
+
+### Manual Installation
+* Download the package and install it
+```
+# curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
+# sudo apt-get install -y nodejs
+```
+* Verify if nodejs is installed correctly
+```
+# node -v
+```
+* Check where node is installed
+```
+# which node
+```
+
+## Install SVN
+```
+# apt-get install subversion
+
+# svn --version
+```
+
+## Install Git
+```
+# apt-get install git-core
+
+# git --version
+```
+### Configure and view git settings
+```
+# git config --global user.name "<YOUR NAME>"
+# git config --global user.email "<YOUR EMAIL>"
+
+# cat ~/.gitconfig
+
+# git config --list
+```
+
+## Install IntelliJ IDEA
+
+## Install Spring Tool Suite
+
+## Install Visual Studio Code
