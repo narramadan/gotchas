@@ -9,6 +9,7 @@
 * [Maven](https://github.com/narramadan/gotchas/blob/master/Maven_Commands_for_Reference.md)
 
 ## Getting things done
+* [Java Development Environment setup on Ubuntu Desktop](https://github.com/narramadan/gotchas/blob/master/Ubuntu_Development_Environment_Setup.md)
 * [Add existing project to Git](https://github.com/narramadan/gotchas/blob/master/Add_Existing_Project_To_Git.md)
 * [Java 8 Streams](https://github.com/narramadan/gotchas/blob/master/Java8_Streams_Gotchas.md)
 * [Import Certificate to Java Keystore](https://github.com/narramadan/gotchas/blob/master/Java_Import_Certificate_To_KetStore)
