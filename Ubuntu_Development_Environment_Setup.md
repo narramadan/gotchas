@@ -381,7 +381,104 @@ madan adm cdrom sudo dip plugdev lpadmin sambashare docker
 ```
 
 ## Install MariaDB
-Follow the below series of steps to install & configure MariaDB
+Follow the below series of steps to install & configure MariaDB on Ubuntu 18.04
+* Add MariaDB repository
+```
+$ sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
 
+$ sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://ftp.utexas.edu/mariadb/repo/10.3/ubuntu bionic main'
+
+$ sudo apt update
+```
+* Install MariaDB
+```
+$ sudo apt install mariadb-server
+```
+* Verify if MariaDB is installed and up & running
+```
+$ sudo systemctl status mariadb
+```
+Output should be something like below
+```
+● mariadb.service - MariaDB 10.3.9 database server
+   Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: 
+  Drop-In: /etc/systemd/system/mariadb.service.d
+           └─migrated-from-my.cnf-settings.conf
+   Active: active (running) since Mon 2018-09-17 18:31:36 AEST; 15s ago
+     Docs: man:mysqld(8)
+           https://mariadb.com/kb/en/library/systemd/
+ Main PID: 18985 (mysqld)
+   Status: "Taking your SQL requests now..."
+    Tasks: 32 (limit: 4915)
+   CGroup: /system.slice/mariadb.service
+           └─18985 /usr/sbin/mysqld
+
+```
+* Login to MariaDB with the `root` user and password provided during installation
+```
+$ mysql -u root -p
+```
+* Stop & Start MariaDB Service
+```
+-- Stop the service
+$ sudo systemctl stop mariadb.service
+
+-- Start the service
+$ sudo systemctl start mariadb.service
+
+-- Enable the service to be started during bootup
+$ sudo systemctl enable mariadb.service
+
+-- Restart the service
+$ sudo systemctl restart mariadb.service
+```
 
 ## Install MongoDB
+Follow the below series of steps to install & configure MongoDB on Ubuntu 18.04
+* Add MongoDB repository
+```
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+
+$ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+
+$ sudo apt-get update
+```
+* Install MongoDB
+```
+$ sudo apt-get install -y mongodb-org
+```
+* Install specific version of MongoDB
+```
+$ sudo apt-get install -y mongodb-org=4.0.2 mongodb-org-server=4.0.2 mongodb-org-shell=4.0.2 mongodb-org-mongos=4.0.2 mongodb-org-tools=4.0.2
+```
+* Start the service and verify if it is up & running
+```
+$ sudo service mongod start
+
+$ sudo systemctl status mongod
+```
+Output should be something like below
+```
+● mongod.service - MongoDB Database Server
+   Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor preset: 
+   Active: active (running) since Mon 2018-09-17 18:49:09 AEST; 4s ago
+     Docs: https://docs.mongodb.org/manual
+ Main PID: 21387 (mongod)
+   CGroup: /system.slice/mongod.service
+           └─21387 /usr/bin/mongod --config /etc/mongod.conf
+
+Sep 17 18:49:09 Madan systemd[1]: Started MongoDB Database Server.
+
+```
+* Connect to MongoDB
+```
+$ mongo --host 127.0.0.1:27017
+```
+* Stop & Start MariaDB Service
+```
+$ sudo service mongod stop
+
+$ sudo service mongod start
+
+$ sudo service mongod restart
+```
