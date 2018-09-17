@@ -26,6 +26,7 @@ Run the below command to some necessary repositories that would be needed by som
 ```
 # apt-get install software-properties-common
 ```
+
 ### Setting up vi editor
 On Ubuntu desktop, editing any document with vi editor causes some wierd issue by printing letters on pressing arrow keys.
 
@@ -34,10 +35,17 @@ To disable this, run the below command. This will create the file if it does not
 vi $HOME/.exrc
 ```
 Add line `set nocompatible` and save the file.
+
 ### Install CURL
 Run the below command to install CURL
 ```
 apt install curl
+```
+
+### Install libconfig
+Libconfig is removed from Ubuntu 18 and this has to be installed to get Postman working. Run the below command to install it
+```
+# sudo apt-get install libgconf-2-4
 ```
 
 ## Java 8 setup
