@@ -3,17 +3,28 @@
 This document is intended to setting up Java Development Environment on Ubuntu Desktop 18.04.1
 
 We would be configuring:
+### Runtimes 
 * Java 8
 * Node
+
+### Development Tools
 * Gradle
 * Maven
 * SVN
 * Git
-* Docker
+
+### IDEs
 * Notepad++
 * IntelliJ IDEA
 * Spring Tool Suite
 * Visual Studio Code
+
+### Additional Softwares or Packages
+* Docker
+* MariaDB
+* MongoDB
+
+### Testing Tools
 * Postman
 
 ## Setting up Ubuntu
@@ -245,6 +256,61 @@ The script clones the nvm repository to ~/.nvm and adds the source line to your 
 # git config --list
 ```
 
+## Install Notepad++
+Run the below command to install IntelliJ IDEA Community edition
+```
+#  sudo snap install notepad-plus-plus
+```
+
+## Install IntelliJ IDEA
+Run the below command to install IntelliJ IDEA Community edition
+```
+#  sudo snap install intellij-idea-community --classic --edge
+```
+
+If this fails, try to search for `intellij-idea-community` and choose to install the app from Ubuntu Software app.
+
+## Install Spring Tool 4
+Follow the below steps to Install Spring Tool Suite
+* Download Spring Tools 4
+```
+# wget http://download.springsource.com/milestone/STS4/4.0.0.M15/dist/e4.9/spring-tool-suite-4-4.0.0.M15-e4.9.0-linux.gtk.x86_64.tar.gz -O spring-tool-suite-4.tar.gz
+```
+* Extract the downloaded file to /opt
+```
+# sudo tar -xvf spring-tool-suite-4.tar.gz -C /opt
+```
+* Create Symbolic link
+```
+# sudo ln -s /opt/sts-4.0.0.M15/SpringToolSuite4 /usr/bin/sts
+```
+* Create Desktop Entry
+```
+# cat > ~/.local/share/applications/sts.desktop <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=STS
+Exec=sts
+Icon=//opt/sts-4.0.0.M15/icon.xpm
+Terminal=false
+Type=Application
+Categories=Development;
+EOL
+```
+* Launch STS by typing `sts` anywhere in terminal or search under installed apps
+
+## Install Visual Studio Code
+Run the below command to install Visual Studio Code
+```
+# sudo snap install vscode --classic
+```
+
+## Install Postman
+Run the below command to install Postman Native app
+```
+# sudo snap install postman
+```
+
 ## Install Docker
 Docker should be installed from the official Docker repository rather then from the official Ubuntu repository as the Docker Installation package might not be the latest version.
 
@@ -314,57 +380,8 @@ madan adm cdrom sudo dip plugdev lpadmin sambashare docker
 # docker
 ```
 
-## Install Notepad++
-Run the below command to install IntelliJ IDEA Community edition
-```
-#  sudo snap install notepad-plus-plus
-```
+## Install MariaDB
+Follow the below series of steps to install & configure MariaDB
 
-## Install IntelliJ IDEA
-Run the below command to install IntelliJ IDEA Community edition
-```
-#  sudo snap install intellij-idea-community --classic --edge
-```
 
-If this fails, try to search for `intellij-idea-community` and choose to install the app from Ubuntu Software app.
-
-## Install Spring Tool 4
-Follow the below steps to Install Spring Tool Suite
-* Download Spring Tools 4
-```
-# wget http://download.springsource.com/milestone/STS4/4.0.0.M15/dist/e4.9/spring-tool-suite-4-4.0.0.M15-e4.9.0-linux.gtk.x86_64.tar.gz -O spring-tool-suite-4.tar.gz
-```
-* Extract the downloaded file to /opt
-```
-# sudo tar -xvf spring-tool-suite-4.tar.gz -C /opt
-```
-* Create Symbolic link
-```
-# sudo ln -s /opt/sts-4.0.0.M15/SpringToolSuite4 /usr/bin/sts
-```
-* Create Desktop Entry
-```
-# cat > ~/.local/share/applications/sts.desktop <<EOL
-[Desktop Entry]
-Encoding=UTF-8
-Name=STS
-Exec=sts
-Icon=//opt/sts-4.0.0.M15/icon.xpm
-Terminal=false
-Type=Application
-Categories=Development;
-EOL
-```
-* Launch STS by typing `sts` anywhere in terminal or search under installed apps
-
-## Install Visual Studio Code
-Run the below command to install Visual Studio Code
-```
-# sudo snap install vscode --classic
-```
-
-## Install Postman
-Run the below command to install Postman Native app
-```
-# sudo snap install postman
-```
+## Install MongoDB
