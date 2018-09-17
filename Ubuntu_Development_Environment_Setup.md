@@ -10,6 +10,7 @@ We would be configuring:
 * SVN
 * Git
 * Docker
+* Notepad++
 * IntelliJ IDEA
 * Spring Tool Suite
 * Visual Studio Code
@@ -313,29 +314,57 @@ madan adm cdrom sudo dip plugdev lpadmin sambashare docker
 # docker
 ```
 
-## Install IntelliJ IDEA
+## Install Notepad++
+Run the below command to install IntelliJ IDEA Community edition
+```
+#  sudo snap install notepad-plus-plus
+```
 
-## Install Spring Tool Suite
+## Install IntelliJ IDEA
+Run the below command to install IntelliJ IDEA Community edition
+```
+#  sudo snap install intellij-idea-community --classic --edge
+```
+
+If this fails, try to search for `intellij-idea-community` and choose to install the app from Ubuntu Software app.
+
+## Install Spring Tool 4
+Follow the below steps to Install Spring Tool Suite
+* Download Spring Tools 4
+```
+# wget http://download.springsource.com/milestone/STS4/4.0.0.M15/dist/e4.9/spring-tool-suite-4-4.0.0.M15-e4.9.0-linux.gtk.x86_64.tar.gz -O spring-tool-suite-4.tar.gz
+```
+* Extract the downloaded file to /opt
+```
+# sudo tar -xvf spring-tool-suite-4.tar.gz -C /opt
+```
+* Create Symbolic link
+```
+# sudo ln -s /opt/sts-4.0.0.M15/SpringToolSuite4 /usr/bin/sts
+```
+* Create Desktop Entry
+```
+# cat > ~/.local/share/applications/sts.desktop <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=STS
+Exec=sts
+Icon=//opt/sts-4.0.0.M15/icon.xpm
+Terminal=false
+Type=Application
+Categories=Development;
+EOL
+```
+* Launch STS by typing `sts` anywhere in terminal or search under installed apps
 
 ## Install Visual Studio Code
+Run the below command to install Visual Studio Code
+```
+# sudo snap install vscode --classic
+```
 
 ## Install Postman
-Follow the below steps to install Postman Navtive app and create symbolic link
-
-* Download the latest version of Postman Native app for Ubuntu
+Run the below command to install Postman Native app
 ```
-# wget  https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+# sudo snap install postman
 ```
-* Extract the downloaded archive to opt folder
-```
-# sudo tar -xzf postman.tar.gz -C /opt
-```
-* Delete the downloaded archive
-```
-# rm postman.tar.gz
-```
-* Create symbolic link for Postman
-```
-# sudo ln -S /opt/Postman/Postman /usr/bin/postman
-```
-* Search for Postman and select the app to launch it.
