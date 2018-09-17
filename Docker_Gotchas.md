@@ -6,7 +6,17 @@
 
 `docker pull` - 
 
-`docker run` - 
+`docker run` - The basic docker run command format looks as below
+```
+$ docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+```
+
+Options
+* `-d` - 
+* `-it` -
+* `--link` -
+* `--rm` - 
+* `--host` - 
 
 `docker stop` - 
 
