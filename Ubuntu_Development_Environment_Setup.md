@@ -312,3 +312,35 @@ madan adm cdrom sudo dip plugdev lpadmin sambashare docker
 ## Install Visual Studio Code
 
 ## Install Postman
+Follow the below steps to install Postman Navtive app and have it available in your launcher when you search for it.
+* Download the latest version of Postman Native app for Ubuntu
+```
+# wget  https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+```
+* Extract the downloaded archive to opt folder
+```
+# sudo tar -xzf postman.tar.gz -C /opt
+```
+* Delete the downloaded archive
+```
+# rm postman.tar.gz
+```
+* Create symbolic link for Postman
+```
+# sudo ln -S /opt/Postman/Postman /usr/bin/postman
+```
+* Run the below command to create unity desktop file which will hace Postman added as a app in Unity Launcher.
+```
+# cat > ~/.local/share/applications/postman.desktop <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=postman
+Icon=/opt/Postman/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+EOL
+```
+* Logout and login back
+* Search for Postman and select the app to launch it.
