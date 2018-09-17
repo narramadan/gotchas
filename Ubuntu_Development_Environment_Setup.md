@@ -9,8 +9,11 @@ We would be configuring:
 * Maven
 * SVN
 * Git
+* Docker
+* IntelliJ IDEA
 * Spring Tool Suite
 * Visual Studio Code
+* Postman
 
 ## Setting up Ubuntu
 
@@ -233,8 +236,79 @@ The script clones the nvm repository to ~/.nvm and adds the source line to your 
 # git config --list
 ```
 
+## Install Docker
+Docker should be installed from the official Docker repository rather then from the official Ubuntu repository as the Docker Installation package might not be the latest version.
+
+Follow the series of commands to install Docker on Ubuntu
+* Update packages & few prerequisite packages
+```
+# apt update
+
+# apt install apt-transport-https ca-certificates curl software-properties-common
+```
+* Add GPG key for the official Docker repository
+```
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+* Add the Docker repository to APT sources
+```
+# add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+```
+* Update the package database with the Docker packages from the newly added repo
+```
+# apt update
+```
+* Run the below command which will use the Docker repo instead of Ubuntu repo for the installation
+```
+# apt-cache policy docker-ce
+```
+* Running the below command will install Docker and start the service as daemon and have the process enabled to start during system boot
+```
+# apt install docker-ce
+```
+* Verify if Docker is started and running
+```
+# systemctl status docker
+```
+Output should be something like below
+```
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: e
+   Active: active (running) since Mon 2018-09-17 11:44:56 AEST; 2min 10s ago
+     Docs: https://docs.docker.com
+ Main PID: 5165 (dockerd)
+    Tasks: 38
+   CGroup: /system.slice/docker.service
+           ├─5165 /usr/bin/dockerd -H fd://
+           └─5193 docker-containerd --config /var/run/docker/containerd/containe
+```
+### Configure Docker command to run without Sudo
+Follow the below commands to configure to run Docker commands without Sudo
+* Add `username` to the `docker` group. Before running this, make sure you exit for root user
+```
+# sudo usermod -aG docker ${USER}
+```
+* Close the current terminal and start new one and run the below command to apply the new group membership
+```
+# su - ${USER}
+```
+* Verify if the user is added to the `docker` group
+```
+# id -nG
+```
+It should output something like this
+```
+madan adm cdrom sudo dip plugdev lpadmin sambashare docker
+```
+* Verify running the docker command without sudo and check if you can see the subcommands listed
+```
+# docker
+```
+
 ## Install IntelliJ IDEA
 
 ## Install Spring Tool Suite
 
 ## Install Visual Studio Code
+
+## Install Postman
