@@ -1,4 +1,4 @@
-# Java Development Setup on Ubuntu
+# Java Development Environment Setup on Ubuntu 18.04
 
 This document is intended to setting up Java Development Environment on Ubuntu Desktop 18.04.1
 
