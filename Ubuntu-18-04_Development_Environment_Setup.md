@@ -130,7 +130,7 @@ Gradle can be installed and configured either via SDKMAN or manually. It is alwa
 ### Installation via SDKMAN
 Run the below command to install Gradle using SDKMAN Package Manager
 ```
-$ sdkman install gradle 4.10.1 
+$ sdk install gradle 4.10.1 
 ```
 To use different version of Gradle say 4.4, Install the same using above and follow the commands below to list the current version that is being used, list all versions and set one of the available as default using SDKMAN
 ```
