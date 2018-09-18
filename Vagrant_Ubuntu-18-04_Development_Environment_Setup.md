@@ -34,3 +34,39 @@ should output
 ```
 Vagrant 2.0.2
 ```
+
+## Load Ubuntu Desktop 18.04 Vagrant Box
+Follow the below steps to load up Ubuntu Desktop 18.04 Vagrant Box
+* Switch to Root user
+```
+$ sudo -s
+```
+* Create a project folder under which we initialize Vagrant
+```
+$ mkdir javadevsetup-vagrant
+
+$ cd javadevsetup-vagrant
+```
+* Initialize Vagrant with one of the available Ubuntu Desktop 18.04 box available in Vagrant public boxes 
+```
+$ vagrant init peru/ubuntu-18.04-desktop-amd64
+```
+This will create file `Vagrantfile` which have reference to the used public box
+* Run Vagrant command to startup using the available Vagrantfile
+```
+$ vagrant up
+```
+This will use the default provider `virtualbox` and will download the virtualbox ubuntu desktop 18.04 image and starts it up. 
+You should observe something similar after running the above command
+```
+root@Madan:~/work/javadevsetup-vagrant# vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'peru/ubuntu-18.04-desktop-amd64' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Loading metadata for box 'peru/ubuntu-18.04-desktop-amd64'
+    default: URL: https://vagrantcloud.com/peru/ubuntu-18.04-desktop-amd64
+==> default: Adding box 'peru/ubuntu-18.04-desktop-amd64' (v20180907.01) for provider: virtualbox
+    default: Downloading: https://vagrantcloud.com/peru/boxes/ubuntu-18.04-desktop-amd64/versions/20180907.01/providers/virtualbox.box
+```
+Image being dowloaded is of around ~1.36 GB and it would take couple of minutes to complete.
