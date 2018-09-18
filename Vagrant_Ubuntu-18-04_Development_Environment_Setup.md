@@ -132,7 +132,7 @@ This will shutdown the running image and starts it up with the recent changes do
 ## Bootstraping Java Development Environment on Ubuntu Desktop Image
 For Java Development Environment to be setup, we need to create `dev` user with which we need to login to Ubuntu Desktop.
 
-Below are the list of SDKs, SOftwares & Tools that will be configured as part of the Development Environment setup
+Below are the list of SDKs, Softwares & Tools that will be configured as part of the Development Environment setup
 * Java 8
 * Node
 * SDKMAN
@@ -264,7 +264,7 @@ sudo snap install vscode --classic
 ##----------------------------------
 ## Install Postman
 ##----------------------------------
-echo "[Installing Visual Studio Code...]"
+echo "[Installing Postman...]"
 sudo snap install postman
 
 ##----------------------------------
@@ -327,3 +327,5 @@ end
 $ vagrant up
 ```
 This will load the image in VirtualBox and also execute bootstrap.sh for which we can see the logs being run in the console.
+
+Bootstrap script execution will take time as it needs to download all the packages and have them installed. This is one time activity which will be executed during the first time startup.
