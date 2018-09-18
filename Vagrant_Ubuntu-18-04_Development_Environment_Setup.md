@@ -68,5 +68,48 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: URL: https://vagrantcloud.com/peru/ubuntu-18.04-desktop-amd64
 ==> default: Adding box 'peru/ubuntu-18.04-desktop-amd64' (v20180907.01) for provider: virtualbox
     default: Downloading: https://vagrantcloud.com/peru/boxes/ubuntu-18.04-desktop-amd64/versions/20180907.01/providers/virtualbox.box
+    ==> default: Successfully added box 'peru/ubuntu-18.04-desktop-amd64' (v20180907.01) for 'virtualbox'!
+==> default: Importing base box 'peru/ubuntu-18.04-desktop-amd64'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'peru/ubuntu-18.04-desktop-amd64' is up to date...
+==> default: Setting the name of the VM: javadevsetup-vagrant_default_1537243013315_75858
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: 
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default: 
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
 ```
 Image being dowloaded is of around ~1.36 GB and it would take couple of minutes to complete.
+* Connect to Image that is loaded
+```
+$ vagrant ssh
+```
+This should output text as below and showing the bash of the guest os that is loaded
+```
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-33-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+0 packages can be updated.
+0 updates are security updates.
+
+vagrant@linux:~$
+```
