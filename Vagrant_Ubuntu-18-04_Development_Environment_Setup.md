@@ -113,3 +113,18 @@ Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-33-generic x86_64)
 
 vagrant@linux:~$
 ```
+* To access GUI instead os shell, uncomment the below piece of code in Vagrantfile to set `vb.guie` to `true` and set `vb.memory` to `3 GB`
+```
+config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    
+    # Customize the amount of memory on the VM:
+    vb.memory = "3072"
+end
+```
+Reload the image by running the below command
+```
+$ vagrant reload
+```
+This will shutdown the running image and starts it up with the recent changes done to the Vagrantfile. Ubuntu Desktop will be loaded in the Virtualbox console with login screen displayed. Login with password `vagrant` and follow the instructions to setup ubuntu during the first time startup.
