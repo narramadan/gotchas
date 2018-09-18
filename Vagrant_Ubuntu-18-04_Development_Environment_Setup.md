@@ -113,7 +113,7 @@ Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-33-generic x86_64)
 
 vagrant@linux:~$
 ```
-* To access GUI instead os shell, uncomment the below piece of code in Vagrantfile to set `vb.guie` to `true` and set `vb.memory` to `3 GB`
+* To access GUI instead os shell, uncomment the below piece of code in Vagrantfile to set `vb.gui` to `true` and set `vb.memory` to `3 GB`
 ```
 config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -326,6 +326,6 @@ end
 ```
 $ vagrant up
 ```
-This will load the image in VirtualBox and also execute bootstrap.sh for which we can see the logs being run in the console.
+This will load the image in VirtualBox and also execute bootstrap.sh for which we can see the logs being written in the console.
 
 Bootstrap script execution will take time as it needs to download all the packages and have them installed. This is one time activity which will be executed during the first time startup.
