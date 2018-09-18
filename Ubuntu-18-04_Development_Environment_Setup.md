@@ -311,7 +311,7 @@ Run the below command to install Postman Native app
 $ sudo snap install postman
 ```
 
-## Install Docker
+## Install Docker & Docker Compose
 Docker should be installed from the official Docker repository rather then from the official Ubuntu repository as the Docker Installation package might not be the latest version.
 
 Follow the series of commands to install Docker on Ubuntu
@@ -340,6 +340,8 @@ $ apt-cache policy docker-ce
 * Running the below command will install Docker and start the service as daemon and have the process enabled to start during system boot
 ```
 $ apt install docker-ce
+
+$ apt install docker-compose
 ```
 * Verify if Docker is started and running
 ```
