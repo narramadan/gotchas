@@ -1,4 +1,4 @@
-# Provision Ubuntu Desktop 18.04 with Java Development Environment setup done using Vagrant
+# Provision Ubuntu Desktop 18.04 with Java Development Environment done using Vagrant
 
 `Vagrant` is an open-source software for building and maintaining portable virtual software development environments. Vagrant is an application which enables us in building consistent development environments with ease using Vagrantfile.
 
