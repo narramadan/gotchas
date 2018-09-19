@@ -489,3 +489,30 @@ $ sudo service mongod start
 
 $ sudo service mongod restart
 ```
+
+##----------------------------------
+# Configure Desktop shortcuts
+##----------------------------------
+### Create Desktop file for STS
+cat > $HOME/Desktop/sts.desktop <<EOL
+[Desktop Entry]
+Version=1.0
+Name=STS 4
+Type=Application
+Exec=/opt/sts-4.0.0.M15/SpringToolSuite4
+Terminal=false
+Icon=/opt/sts-4.0.0.M15/icon.xpm
+Comment=STS 4
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=STS 4
+EOL
+
+### Copy files from snap desktop location to $HOME/Desktop
+sudo yes | cp -rf /var/lib/snapd/desktop/applications/postman_postman.desktop $HOME/Desktop/postman.desktop
+sudo yes | cp -rf /var/lib/snapd/desktop/applications/vscode_vscode.desktop $HOME/Desktop/vscode.desktop
+sudo yes | cp -rf /var/lib/snapd/desktop/applications/notepad-plus-plus_notepad-plus-plus.desktop $HOME/Desktop/notepad-plus-plus.desktop
+sudo yes | cp -rf /var/lib/snapd/desktop/applications/gnome-calculator_gnome-calculator.desktop $HOME/Desktop/gnome-calculator.desktop
+
+sudo chown dev:dev -R $HOME/Desktop
+sudo chmod +x $HOME/Desktop/*.desktop
