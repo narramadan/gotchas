@@ -144,6 +144,7 @@ Below are the list of SDKs, Softwares & Tools that will be configured as part of
 * Spring Tools 4
 * Visual Studio Code
 * Docker & Docker Compose
+* Create Desktop shortcuts for applicable applications
 
 Follow the steps to bootstrap the environment on Ubuntu Desktop Image.
 
@@ -300,7 +301,29 @@ sudo service docker restart
 ##----------------------------------
 # Configure Desktop shortcuts
 ##----------------------------------
-## <<TODO>>
+### Create Desktop file for STS
+cat > /home/dev/Desktop/sts.desktop <<EOL
+[Desktop Entry]
+Version=1.0
+Name=STS 4
+Type=Application
+Exec=/opt/sts-4.0.0.M15/SpringToolSuite4
+Terminal=false
+Icon=/opt/sts-4.0.0.M15/icon.xpm
+Comment=STS 4
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=STS 4
+EOL
+
+### Copy files from snap desktop location to `dev` user desktop
+sudo yes | cp -rf /var/lib/snapd/desktop/applications/postman_postman.desktop /home/dev/Desktop/postman.desktop
+sudo yes | cp -rf /var/lib/snapd/desktop/applications/vscode_vscode.desktop /home/dev/Desktop/vscode.desktop
+sudo yes | cp -rf /var/lib/snapd/desktop/applications/notepad-plus-plus_notepad-plus-plus.desktop /home/dev/Desktop/notepad-plus-plus.desktop
+sudo yes | cp -rf /var/lib/snapd/desktop/applications/gnome-calculator_gnome-calculator.desktop /home/dev/Desktop/gnome-calculator.desktop
+
+sudo chown dev:dev -R /home/dev/Desktop
+sudo chmod +x /home/dev/Desktop/*.desktop
 ```
 * Replace content in `Vagrantfile` with the content below to configure provisioner which should be executed when the image is provisioned during the first startup
 ```
