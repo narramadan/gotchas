@@ -286,16 +286,21 @@ $ sudo ln -s /opt/sts-4.0.0.M15/SpringToolSuite4 /usr/bin/sts
 ```
 * Create Desktop Entry
 ```
-$ cat > ~/.local/share/applications/sts.desktop <<EOL
+$ cat > $HOME/Desktop/sts.desktop <<EOL
 [Desktop Entry]
-Encoding=UTF-8
-Name=STS
-Exec=sts
-Icon=//opt/sts-4.0.0.M15/icon.xpm
-Terminal=false
+Version=1.0
+Name=STS 4
 Type=Application
-Categories=Development;
+Exec=/opt/sts-4.0.0.M15/SpringToolSuite4
+Terminal=false
+Icon=/opt/sts-4.0.0.M15/icon.xpm
+Comment=STS 4
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=STS 4
 EOL
+
+$ chmod +x $HOME/Desktop/sts.desktop
 ```
 * Launch STS by typing `sts` anywhere in terminal or search under installed apps
 
