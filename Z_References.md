@@ -6,3 +6,6 @@
 * https://app.vagrantup.com/dpalomar/boxes/uc3mTiw
 * https://gist.github.com/avandeursen/8148fb2657864a382af2add1f96e83ad
 * [Running Docker Container on Vagrant to load java application](https://github.com/llatinov/sample-dropwizard-rest-stub)
+
+## Frontend Development
+* [Experiences Using Micro Frontends at IKEA](https://www.infoq.com/news/2018/08/experiences-micro-frontends)
