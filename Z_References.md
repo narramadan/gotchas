@@ -9,3 +9,8 @@
 
 ## Frontend Development
 * [Experiences Using Micro Frontends at IKEA](https://www.infoq.com/news/2018/08/experiences-micro-frontends)
+
+## Java Blog posts
+* CompletableFuture
+  * [Fantastic CompletableFuture.allOf() and how to handle errors](https://medium.com/@senanayake.kalpa/fantastic-completablefuture-allof-and-how-to-handle-errors-27e8a97144a0)
+  * [Java 8 Multiple CompletableFutures](https://grokonez.com/java/java-8/java-8-multiple-completablefutures)
