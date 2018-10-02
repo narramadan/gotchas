@@ -14,3 +14,4 @@
 * CompletableFuture
   * [Fantastic CompletableFuture.allOf() and how to handle errors](https://medium.com/@senanayake.kalpa/fantastic-completablefuture-allof-and-how-to-handle-errors-27e8a97144a0)
   * [Java 8 Multiple CompletableFutures](https://grokonez.com/java/java-8/java-8-multiple-completablefutures)
+  * [Asynchronous REST Services with JAX-RS and CompletableFuture](https://allegro.tech/2014/10/async-rest.html)
