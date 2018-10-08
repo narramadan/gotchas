@@ -7,6 +7,8 @@ This document will describe steps needed to setup `Vagrant` on `Ubuntu Desktop 1
 ## Prerequisites
 
 ### Setting up Vagrant on Windows
+* Download and Install Oracle Virtual Box for windows available from https://www.virtualbox.org/wiki/Downloads
+* Download and Install Vagrant for Windows available from https://www.vagrantup.com/downloads.html
 
 #### If running behind a Proxy Server
 
@@ -24,6 +26,17 @@ Verify if the environment variables are created by running the below command in 
 Install `vagrant-proxyconf` vagrant plugin
 ```
 > vagrant plugin install vagrant-proxyconf
+```
+
+Add the below content to `%USER%/.vagrant.d/Vagrantfile` for the proxy to be configured for all Vagrant VMs. Replace with your proxy server and authetication details.
+```
+Vagrant.configure("2") do |config|
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = "http://user:password@host:port"
+    config.proxy.https    = "http://user:password@host:port"
+    config.proxy.no_proxy = "localhost,127.0.0.1"
+  end
+end
 ```
 
 ### Setting up Vagrant on Ubuntu 18.04
