@@ -5,7 +5,29 @@
 This document will describe steps needed to setup `Vagrant` on `Ubuntu Desktop 18.04` and use it to build `Vargarntfile` which will provision `Ubuntu Desktop 18.04 with Java Development Environment` setup done.
 
 ## Prerequisites
-### Update/Upgrade Ubuntu
+
+### Setting up Vagrant on Windows
+
+#### If running behind a Proxy Server
+
+Configure the below environment variables with your proxy server along with authetication details
+```
+http_proxy=http://user:password@host:port
+https_proxy=%http_proxy%
+```
+
+Verify if the environment variables are created by running the below command in command prompt
+```
+> echo %https_proxy%
+```
+
+Install `vagrant-proxyconf` vagrant plugin
+```
+> vagrant plugin install vagrant-proxyconf
+```
+
+### Setting up Vagrant on Ubuntu 18.04
+#### Update/Upgrade Ubuntu
 Run the below command in terminal to update your OS. Switch to root user before executing these commands
 ```
 $ apt-get update && apt-get upgrade
@@ -329,6 +351,13 @@ sudo chmod +x /home/dev/Desktop/*.desktop
 ```
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+
+# Check if vagrant proxyconf plugin is installed if you are accessing internet behind a proxy server
+if !Vagrant.has_plugin?("vagrant-proxyconf") 
+        system('vagrant plugin install vagrant-proxyconf')     
+
+     raise("vagrant-proxyconf installed. Run command again.");
+end
 
 Vagrant.configure("2") do |config|
 
