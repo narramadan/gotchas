@@ -394,3 +394,6 @@ $ vagrant up
 This will load the image in VirtualBox and also execute bootstrap.sh for which we can see the logs being written in the console.
 
 Bootstrap script execution will take time as it needs to download all the packages and have them installed. This is one time activity which will be executed during the first time startup.
+
+### Setup internet proxy details if you are running behind proxy
+<TODO>
