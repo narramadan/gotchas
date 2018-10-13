@@ -37,3 +37,12 @@ Push the changes in your local repository to GitHub.
 	git push origin master
 
 Pushes the changes in your local repository up to the remote repository you specified as the origin
+
+## Additional Information
+
+### Fixing `fatal: refusing to merge unrelated histories`
+Run the below command to fix `fatal: refusing to merge unrelated histories` if you have any conflicts on pushing the changes back to the repository.
+```
+git pull origin branchname --allow-unrelated-histories
+```
+This usually happens when you have a repository created with Readme.md and you have initialized git in an existing project with Readme.md aleardy available. Pushing your changes will cause this issue. After running the above command, Readme.md will be merged. Add the file and commit it and try to push the code.
