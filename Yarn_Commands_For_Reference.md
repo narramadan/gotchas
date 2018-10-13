@@ -46,3 +46,13 @@
 yarn global add create-react-app
 create-react-app my-app
 ```
+## Fixing Common Issues
+
+### Fix `Error: watch ENOSPC` on Ubuntu when running `yarn dev`
+I had this problem when running `yarn dev` or `npm start` no a Ubuntu 18.04
+
+This [link](https://discourse.roots.io/t/gulp-watch-error-on-ubuntu-14-04-solved/3453) helped me on this, The error happens because there's a limit of files that can be watched by default on Ubuntu. And we need to increase this number of files in the `/etc/sysctl.conf` config file, adding this line at the end `fs.inotify.max_user_watches=582222`
+
+The command to add the config bellow is
+
+`echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
