@@ -4,6 +4,10 @@
 * https://services.github.com/on-demand/github-cli/
 * https://makandracards.com/makandra?query=topic%3A%22Version+control%22
 
+## Bitbucket Setup
+* [Setup SSH Keys](https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html)
+* [Changing remote url from https to ssh](https://help.github.com/articles/changing-a-remote-s-url/)
+
 ## Setup
 
 For [Windows](https://git-scm.com/download/win)
