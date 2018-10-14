@@ -56,3 +56,9 @@ This [link](https://discourse.roots.io/t/gulp-watch-error-on-ubuntu-14-04-solved
 The command to add the config bellow is
 
 `echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
+
+### Fix `libpng12.so.0: cannot open shared object file: No such file or directory` on Ubuntu
+Run the below command to fix issue on not finding `libpng12.so`
+```
+echo "deb http://mirrors.kernel.org/ubuntu/ xenial main" | sudo tee -a /etc/apt/sources.list && sudo apt-get update && sudo apt install -y --allow-unauthenticated libpng12-0
+```
