@@ -91,3 +91,12 @@ Run the below command(s) to Install, Verify, Upgrade, Remove Dart SDK
 
 > choco install gradle --version 4.10.2 -my
 ```
+
+### Development packages
+```
+> choco install dart-sdk
+
+> choco install python
+
+> choco install nodejs.install
+```
