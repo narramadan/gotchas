@@ -15,3 +15,11 @@
   * [Fantastic CompletableFuture.allOf() and how to handle errors](https://medium.com/@senanayake.kalpa/fantastic-completablefuture-allof-and-how-to-handle-errors-27e8a97144a0)
   * [Java 8 Multiple CompletableFutures](https://grokonez.com/java/java-8/java-8-multiple-completablefutures)
   * [Asynchronous REST Services with JAX-RS and CompletableFuture](https://allegro.tech/2014/10/async-rest.html)
+
+## Windows 10 Subsystem for Linux
+* [Install Linux environment in Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* [Configure Bash shell as default terminal in VS CODE](https://github.com/Microsoft/vscode/issues/22317)
+```
+Set terminal settings for default shell
+"terminal.integrated.shell.windows": "C:\\Windows\\WinSxS\\amd64_microsoft-windows-lxss-bash_31bf3856ad364e35_10.0.16299.15_none_62878a822db68b25\\bash.exe"
+```
