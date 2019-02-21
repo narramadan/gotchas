@@ -38,6 +38,11 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 `git config --global --unset http.proxy` - to remove the proxy configuration 
 
+## Git GUI
+`gitk` - Opens Git GUI on the current branch
+
+`gitk --all` - Opens Git GUI with all branches
+
 ## Create
 `git clone <url>` - Clone a repository
 
@@ -51,12 +56,19 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 `git add -u` - Consider files or folders deleted to be committed with `commit` and pushed with `push` commands
 
 ## See Commit History
+`git log --branches --not --remotes` - To see all commits on all branches that aren't pushed yet
+
+`git log --branches --not --remotes --simplify-by-decoration --decorate --oneline` - To see the most recent commit on each branch, and the branch names
+
+`git reflog` - Reference logs, or "reflogs", record when the tips of branches and other references were updated in the local repository
 
 ## Update the local repository
 
 ## Push changes to remote repository
 
 ## Working with Branches & Tags
+
+`git branch -v` - Will show, for each local branch, whether it's "ahead" or not.
 
 ### Fetch
 `git fetch` - fetch branches and/or tags from one or more repositories
