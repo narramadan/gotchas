@@ -328,7 +328,39 @@ Hosting endpoint: http://aws-amplify-test-XXXXXXX-hostingbucket-prod.s3-website-
 ```
 
 ## Configure Git for multi user development
+Lets configure Git and have the code committed to Git Repo. I opted to host the app on Github, but we can go with any vendor.
+* Create a repo and follow the series of steps to initialize Git and commit the code to the repo
+```
+$ git init
+
+$ git add *
+
+$ git commit -m "Initial Commit"
+
+$ git remote add origin https://github.com/XXXXXX/aws-amplify-react-test.git
+
+$ git push -u origin master
+```
+* This should now push the changes the code to repo that is created.
+* Pass it to the team for them to use the repo to create additional APIs or work on app and push the changes to their desired environment.
 
 ## Configure CI/CD Pipeline to push & deploy changes to production
+`Amplify Console` will enable to continiously deploy updates whenever their is a commit when the app is built with `Amplify`.
+
+* Login to AWS and choose `AWS Amplify` which will open up the console.
+* Click on `Connect app` button
+* Select `Github` or the repo you are opted for and click next
+* Authroize AWS Amplify to access the repositories from Github and choose the repository that should be added.
+* Select the branch which should be monitoried for any commits and click next
+* Choose the amplify environment that should be used by amplify console to deploy the changes. I select `prod` which is ideal case
+* Click on `Create new role` and choose the appropriate permissions for this role.
+* Choose the role that is created from the dropdown
+* Click next. Review the changes and proceed by clicking `Save & deploy`.
+* Wait for `master` branch to be provisioned, built, deployed and finally verified which will finally lead to every stage in green color.
+* Click on the link displayed below the app screenshot which would open the deployed app.
+* As we didn't test Prod environment when it is deployed with new resources, we need to signup before we can test GraphQL and Pinpoint.
+* Upon signingup, Login to the application and test by clicking the buttons as before. Verify the developer console and pinpoint for events that are published.
+
+## Update app by adding new feature and deploy to production automatically
 
 ## Delete Amplify resources
