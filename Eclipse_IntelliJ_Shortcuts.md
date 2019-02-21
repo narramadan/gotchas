@@ -4,25 +4,27 @@
 | ------------- | ------------- | ------------- |
 | Go to declaration (method or class) |  F3 | ctrl + b |
 | Go to line | ctrl + l  | ctrl + g |
-| show the type hierarchy | F4 | ctrl+h | 
-| find usages | ctrl+alt+g | ctrl+alt+F7	| 
-| finds the usages in the same file | ctrl+shift+u | ctrl+f7	| 
-| rename | alt+shift+r | shift+F6 | 
-| find file / open resource | ctrl+shift+r | ctrl+shift+N | 
-| run (java program) | ctrl+shift+x, j | ctrl+shift+F10 | 
-| organize imports | ctrl+shift+o | ctrl+alt+o | 
-| show current file structure / outline | ctrl+o | ctrl+F12 | 
-| create local variable refactoring | ctrl+shift+m | ctrl+alt+V | 
+| Show the type hierarchy | F4 | ctrl+h | 
+| Find usages | ctrl+alt+g | ctrl+alt+F7	| 
+| Finds the usages in the same file | ctrl+shift+u | ctrl+f7	| 
+| Rename | alt+shift+r | shift+F6 | 
+| Find file / open resource | ctrl+shift+r | ctrl+shift+N | 
+| Run (java program) | ctrl+shift+x, j | ctrl+shift+F10 | 
+| Organize imports | ctrl+shift+o | ctrl+alt+o | 
+| Show current file structure / outline | ctrl+o | ctrl+F12 | 
+| Create local variable refactoring | ctrl+shift+m | ctrl+alt+V | 
 | System.out.println("") | syso ctrl+space | sout ctrj+j | 
-| move lines | alt + up/down | ctrl + shift + up/down | 
-| delete current line | ctrl + d | ctrl + y | 
-| search (find in path) | ctrl + h | ctrl + shift + f | 
-| if I want to add the semi-colon at the end of a statement | `semi` set in window-> preferences | ctrl + shift + enter | 
-| introduce local variable | ctrl + 1 or ctrl + shift + l | ctrl + alt + v | 
-| generate getters / setters | alt + shift + s | alt + insert | 
-| format code | ctrl + shift + f | ctrl + alt + l | 
-| redo | ctrl + y | ctrl + shift + z | 
-| comment out lines | ctrl + shift + c | ctrl + / | 
-| show call hierarchy | ctrl + alt + h | ctrl + alt + h | 
-| to jump to one of the callers of a method none | ? | ctrl + alt + f7 | 
-| evaluate expression (in debugger) | ctrl + shift + i | alt + f8 | 
+| Move lines | alt + up/down | ctrl + shift + up/down | 
+| Delete current line | ctrl + d | ctrl + y | 
+| Search (find in path) | ctrl + h | ctrl + shift + f | 
+| If I want to add the semi-colon at the end of a statement | `semi` set in window-> preferences | ctrl + shift + enter | 
+| Itroduce local variable | ctrl + 1 or ctrl + shift + l | ctrl + alt + v | 
+| Generate getters / setters | alt + shift + s | alt + insert | 
+| Format code | ctrl + shift + f | ctrl + alt + l | 
+| Redo | ctrl + y | ctrl + shift + z | 
+| Comment out lines | ctrl + shift + c | ctrl + / | 
+| Show call hierarchy | ctrl + alt + h | ctrl + alt + h | 
+| To jump to one of the callers of a method none | ? | ctrl + alt + F7 | 
+| Evaluate expression (in debugger) | ctrl + shift + i | alt + F8 | 
+| Build project | | ctrl + F9 |
+
