@@ -84,7 +84,25 @@ $ amplify add api
 * Choose `No` for annotated GraphQL schema
 * Choose `Yes` for guided schema creation
 * Choose `One-to-many relationships` for project
-* Choose `Yes` to edit the schema now. This will create `schema.graphql` and open it in VS Code editor
+* Choose `Yes` to edit the schema now. This will create `amplify\backend\api\amplifyTestAPI\schema.graphql` and open it in VS Code editor
+```
+type Blog @model {
+  id: ID!
+  name: String!
+  posts: [Post] @connection(name: "BlogPosts")
+}
+type Post @model {
+  id: ID!
+  title: String!
+  blog: Blog @connection(name: "BlogPosts")
+  comments: [Comment] @connection(name: "PostComments")
+}
+type Comment @model {
+  id: ID!
+  content: String
+  post: Post @connection(name: "PostComments")
+}
+```
 * Press enter to end the schema creation
 * Check Amplify Status
 ```
@@ -106,6 +124,8 @@ $ amplify push
 * When prompted for code generation, choose `Yes` and accept defaults for subsequent prompts
 * This should display the GraphQL endpoint when all the resources are created/updated in the cloud
 * As part of the API creation in cloud, you can observe there are bunch of folders & files created under `amplify\backend\api` and `src\graphql`
+* Schema is for a Blog application where we can create blogs and manage posts and comments under them.
+* As we can see, type `Blog` has reference to type `Post` and type has the same vice-versa. And this applies the same to type `Post` and `Comment`.
 * Go to AWS Console > Appsync and see the API is created with suffix `-dev` appened to it.
 * Click on the API name to through Schema, datasource that is created based upon schema
 * DynamoDB Table created under this API will include the API Id in the table name. This will ensure that different tables are created for different Amplify environments
@@ -361,6 +381,76 @@ $ git push -u origin master
 * As we didn't test Prod environment when it is deployed with new resources, we need to signup before we can test GraphQL and Pinpoint.
 * Upon signingup, Login to the application and test by clicking the buttons as before. Verify the developer console and pinpoint for events that are published.
 
-## Update app by adding new feature and deploy to production automatically
+## Add Custom resolvers
+As mentioned in [Amplify Docs](https://aws-amplify.github.io/docs/cli/graphql?sdk=js#add-a-custom-resolver-that-targets-a-dynamodb-table-from-model), if we need to write specific queries we need write custom resolvers.
+
+If we observe `src\graphql\queries.js`, we see there are only six queries generated. `getBlog`, `ListBlogs`, `GetPost`, `listPosts`, `GetComment` and `ListComments`. But these will not suffice our needs to fetch all posts under a specific blog or fetch all comments under a speific post.
+
+Follow the below steps to create custom resolvers for two queries `postsForBlog` and `commentsForPost`
+#<TODO>#
+
+## Update GraphQL Schema by adding non-null field to existing type which has DynamoDB table already created with data in it
+* Lets update the schema for type `Blog` to add not-null type `Category` which is an enum
+* Swicth to dev environment by running below command
+```
+$ amplify env checkout dev
+```
+* Update schema as below in `amplify\backend\api\amplifyTestAPI\schema.graphql`
+```
+type Blog @model {
+  id: ID!
+  name: String!
+  posts: [Post] @connection(name: "BlogPosts")
+  category: Category!
+}
+type Post @model {
+  id: ID!
+  title: String!
+  blog: Blog @connection(name: "BlogPosts")
+  comments: [Comment] @connection(name: "PostComments")
+}
+type Comment @model {
+  id: ID!
+  content: String
+  post: Post @connection(name: "PostComments")
+}
+
+enum Category {
+  Technology
+  Science
+  Politics
+  Books
+}
+```
+* Compile GraphQL once the schema is updated to verify if there are any compilation issues
+```
+$ amplify api gql-compile
+```
+* Now check for amplify status, we will see `API` is changed and needs an `Update` as below
+```
+$ amplify status
+
+Current Environment: dev
+
+| Category  | Resource name              | Operation | Provider plugin   |
+| --------- | -------------------------- | --------- | ----------------- |
+| Api       | amplifyTestAPI             | Update    | awscloudformation |
+| Auth      | amplifytestcognitouserpool | No Change | awscloudformation |
+| Analytics | awsamplifytest             | No Change | awscloudformation |
+| Hosting   | S3AndCloudFront            | No Change | awscloudformation |
+```
+* Push the changes and accept with `Y` when prompted for update code & GraphQL statements generation
+```
+$ amplify push
+```
+* Modify the code to include `Category` when creating the `Blog` as below in `app.js`
+```
+<TODO> : Getting Errors
+```
+## Functions
 
 ## Delete Amplify resources
+
+## References
+* [GraphQL Schema Definition Language](https://facebook.github.io/graphql/June2018/)
+* [When to use GraphQL Non-null fields](https://medium.com/@calebmer/when-to-use-graphql-non-null-fields-4059337f6fc8)
