@@ -126,6 +126,7 @@ $ amplify push
 * As part of the API creation in cloud, you can observe there are bunch of folders & files created under `amplify\backend\api` and `src\graphql`
 * Schema is for a Blog application where we can create blogs and manage posts and comments under them.
 * As we can see, type `Blog` has reference to type `Post` and type has the same vice-versa. And this applies the same to type `Post` and `Comment`.
+* Refer to [Amplify Docs](https://aws-amplify.github.io/docs/cli/graphql?sdk=js#api-category-project-structure) for the project structure created for the API
 * Go to AWS Console > Appsync and see the API is created with suffix `-dev` appened to it.
 * Click on the API name to through Schema, datasource that is created based upon schema
 * DynamoDB Table created under this API will include the API Id in the table name. This will ensure that different tables are created for different Amplify environments
@@ -238,7 +239,7 @@ export default withAuthenticator(App, true);
 * Login to the application
 * Open up developer console and click on Create new blog & List all blogs and see up the magic !!!
 
-## Add Analytics
+## Add Analytics Capability
 * Run below command to add Analytics capabilities and name it `awsamplifytest`
 ```
 $ amplify add analytics
@@ -277,6 +278,14 @@ Analytics.record('listing blogs');
 ```
 * Login to aws console and select service `Pinpoint`
 * Click on the service created with `-dev` and navigate to `Analytics > Events`. Click on `Event` dropdown and you will see the events that we actually fired in the above code and you can see the number of times the event occurred is number of times you clicked the button.
+
+## Using `@auth` directive
+Follow the below steps to protect adding/updating type `Blog` with `@auth` directive.
+#TODO# - Yet to do
+
+## Adding Storage Capability
+Lets add capability to write/read documents from S3
+#TODO# - Yet to do
 
 ## Host the App using Amplify
 * Run below command to add host the app on Amazon S3.
@@ -386,8 +395,47 @@ As mentioned in [Amplify Docs](https://aws-amplify.github.io/docs/cli/graphql?sd
 
 If we observe `src\graphql\queries.js`, we see there are only six queries generated. `getBlog`, `ListBlogs`, `GetPost`, `listPosts`, `GetComment` and `ListComments`. But these will not suffice our needs to fetch all posts under a specific blog or fetch all comments under a speific post.
 
-Follow the below steps to create custom resolvers for two queries `postsForBlog` and `commentsForPost`
-#<TODO>#
+Follow the below steps to create custom resolvers for two queries `postsForBlog` when blog id is passed and `commentsForPost` when post if is passed.
+* Add the below code to `amplify\api\amplifyTestAPI\schema.graphql` to add additional types and queries
+```
+type Posts {
+  items: [Post]
+  nextToken: String
+}
+
+type Comments {
+  items: [Comment]
+  nextToken: String
+}
+
+type Query {
+  # Fetch posts for a specific blog
+  postsUnderBlog(blogId: ID!, limit: Int, nextToken: String): Posts
+
+  # Fetch comments for a specific post
+  commentsUnderBlog(postId: ID!, limit: Int, nextToken: String): Comments
+}
+```
+* Add the below resolvers for the queries that are added as above under `amplify\api\amplifyTestAPI\resolvers`
+`Query.postsUnderBlog.req.vtl`
+```
+#TODO#
+```
+`Query.postsUnderBlog.res.vtl`
+```
+#TODO#
+```
+`Query.commentsUnderBlog.req.vtl`
+```
+#TODO#
+```
+`Query.commentsUnderBlog.res.vtl`
+```
+#TODO#
+```
+
+#TODO# - Testing
+* Modify `amplify\api\amplifyTestAPI\stacks\CustomResource.json` to add resources for the resolvers that are created 
 
 ## Update GraphQL Schema by adding non-null field to existing type which has DynamoDB table already created with data in it
 * Lets update the schema for type `Blog` to add not-null type `Category` which is an enum
@@ -445,11 +493,15 @@ $ amplify push
 ```
 * Modify the code to include `Category` when creating the `Blog` as below in `app.js`
 ```
-<TODO> : Getting Errors
+#TODO# : Getting Errors
 ```
-## Functions
+## Using Lambda Functions
+Lets notify all authenticated users when there is a new post is created
+#TODO# - Yet to do
 
 ## Delete Amplify resources
+Delete all AWS resources that are created for specific environent
+#TODO# - Yet to do
 
 ## References
 * [GraphQL Schema Definition Language](https://facebook.github.io/graphql/June2018/)
