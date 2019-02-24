@@ -279,6 +279,9 @@ Analytics.record('listing blogs');
 * Login to aws console and select service `Pinpoint`
 * Click on the service created with `-dev` and navigate to `Analytics > Events`. Click on `Event` dropdown and you will see the events that we actually fired in the above code and you can see the number of times the event occurred is number of times you clicked the button.
 
+## Pagination
+#TODO# - Yet to do
+
 ## Using `@auth` directive
 Follow the below steps to protect adding/updating type `Blog` with `@auth` directive.
 #TODO# - Yet to do
@@ -417,14 +420,42 @@ type Query {
 }
 ```
 * Add the below resolvers for the queries that are added as above under `amplify\api\amplifyTestAPI\resolvers`
+
+#`Resolver`# is written in [Apache Velocity Template Language](http://velocity.apache.org/engine/1.7/user-guide.html), which takes request as input and outputs json document. Instructions on how to get the data, transform or apply complex logic such as looping through arguments before inserting data to DynamoDB or fetching data from multiple columns and map them to a single field when returning back.
+
+Refer to [Appsync Resolver Mapping Template](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-overview.html) document for overview on how to implement resolvers.
+
 `Query.postsUnderBlog.req.vtl`
 ```
-#TODO#
+#**
+# Resolver to fetch posts under specific blog
+*#
+#set( $limit = $util.defaultIfNull($context.args.limit, 10) )
+{
+  "version": "2017-02-28",
+  "operation": "Query",
+  "query": {
+    "expression": "#connectionAttribute = :connectionAttribute",
+    "expressionNames": {
+        "#connectionAttribute": "postsBlogId"
+    },
+    "expressionValues": {
+        ":connectionAttribute": {
+            "S": "$context.args.blogId"
+        }
+    }
+  },
+  "scanIndexForward": true,
+  "limit": $limit,
+  "nextToken": #if( $context.args.nextToken ) "$context.args.nextToken" #else null #end,
+  "index": "gsi-BlogPosts"
+}
 ```
 `Query.postsUnderBlog.res.vtl`
 ```
-#TODO#
+$util.toJson($ctx.result)
 ```
+
 `Query.commentsUnderBlog.req.vtl`
 ```
 #TODO#
@@ -433,8 +464,52 @@ type Query {
 ```
 #TODO#
 ```
-
+* Add the resolver resource to the stack by modifying `amplify\api\amplifyTestAPI\stacks\CustomResource.json` under `Resources`
+```json
+"QueryPostsUnderBlogResolver":{  
+   "Type":"AWS::AppSync::Resolver",
+   "Properties":{  
+      "ApiId":{  
+         "Ref":"AppSyncApiId"
+      },
+      "DataSourceName":"PostTable",
+      "TypeName":"Query",
+      "FieldName":"postsUnderBlog",
+      "RequestMappingTemplateS3Location":{  
+         "Fn::Sub":[  
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.postsUnderBlog.req.vtl",
+            {  
+               "S3DeploymentBucket":{  
+                  "Ref":"S3DeploymentBucket"
+               },
+               "S3DeploymentRootKey":{  
+                  "Ref":"S3DeploymentRootKey"
+               }
+            }
+         ]
+      },
+      "ResponseMappingTemplateS3Location":{  
+         "Fn::Sub":[  
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.postsUnderBlog.res.vtl",
+            {  
+               "S3DeploymentBucket":{  
+                  "Ref":"S3DeploymentBucket"
+               },
+               "S3DeploymentRootKey":{  
+                  "Ref":"S3DeploymentRootKey"
+               }
+            }
+         ]
+      }
+   }
+}
+```
+* Compile graphql and see if the changes done till this point doesnt have any errors
+```
+$ amplify api gql-compile
+```
 #TODO# - Testing
+
 * Modify `amplify\api\amplifyTestAPI\stacks\CustomResource.json` to add resources for the resolvers that are created 
 
 ## Update GraphQL Schema by adding non-null field to existing type which has DynamoDB table already created with data in it
