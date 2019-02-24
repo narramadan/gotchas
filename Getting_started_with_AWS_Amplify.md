@@ -451,10 +451,6 @@ Refer to [Appsync Resolver Mapping Template](https://docs.aws.amazon.com/appsync
   "index": "gsi-BlogPosts"
 }
 ```
-`Query.postsUnderBlog.res.vtl`
-```
-$util.toJson($ctx.result)
-```
 
 `Query.commentsUnderBlog.req.vtl`
 ```
@@ -483,7 +479,7 @@ $util.toJson($ctx.result)
 }
 ```
 
-`Query.commentsUnderBlog.res.vtl`
+`common-response.res.vtl`
 ```
 $util.toJson($ctx.result)
 ```
@@ -514,7 +510,7 @@ $util.toJson($ctx.result)
       },
       "ResponseMappingTemplateS3Location":{  
          "Fn::Sub":[  
-            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.postsUnderBlog.res.vtl",
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/common-response.res.vtl",
             {  
                "S3DeploymentBucket":{  
                   "Ref":"S3DeploymentBucket"
@@ -551,7 +547,7 @@ $util.toJson($ctx.result)
       },
       "ResponseMappingTemplateS3Location":{  
          "Fn::Sub":[  
-            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.commentsUnderPost.res.vtl",
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/common-response.res.vtl",
             {  
                "S3DeploymentBucket":{  
                   "Ref":"S3DeploymentBucket"
@@ -609,7 +605,33 @@ If this error is thrown when running `amplify push`, check cloudformation stacks
 ### Adding `Non-null` field to already provisioned DynamoDB table with records
 Add a new Non-null field to one of the Type for which there is DynamoDB table already provisioned and exists data in it. When you try to query the table, exception will be thrown as records already existsing in table does not have data for the non-null field.
 
-Below are steps how this can be resolved with #TODO#
+* Add new Non-null field `Category` of type Enum to type `Blog` in `amplify\api\amplifyTestAPI\schema.graphql`
+```
+type Blog @model {
+  id: ID!
+  name: String!
+  posts: [Post] @connection(name: "BlogPosts")
+  category: Category!
+}
+
+enum Category {
+  Technology
+  Science
+  Politics
+  Books
+}
+```
+* Push the changes using `amplify push` and when prompted to generate code, choose `Y`
+* Run `npm start` to start the application.Open developer console Test listing blogs by clicking the button List all blogs after logging to the application.
+* This should throw exception as <span style="color:red"><font size="+2">Uncaught (in promise)</font> > Cannot return null for non-nullable type: 'Category' within parent 'Blog' (/listBlogs/items[0]/category)</span>
+
+This exception can be resolved by overriding resolver that is auto-generated as mentioned in [Amplify Doc](https://aws-amplify.github.io/docs/cli/graphql?sdk=js#overwrite-a-resolver-generated-by-the-graphql-transform). 
+* Create `Query.listBlogs.res.vtl` under resolvers folder and copy the content as below
+```
+#TODO#
+```
+* Push changes using `amplify push`
+* Now test list all blogs. This should return default value for category when it is null.
 
 ## References
 * [GraphQL Schema Definition Language](https://facebook.github.io/graphql/June2018/)
