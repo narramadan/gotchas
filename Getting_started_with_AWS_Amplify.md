@@ -458,12 +458,36 @@ $util.toJson($ctx.result)
 
 `Query.commentsUnderBlog.req.vtl`
 ```
-#TODO#
+#**
+# Resolver to fetch comments under specific post
+*#
+#set( $limit = $util.defaultIfNull($context.args.limit, 10) )
+{
+  "version": "2017-02-28",
+  "operation": "Query",
+  "query": {
+    "expression": "#connectionAttribute = :connectionAttribute",
+    "expressionNames": {
+        "#connectionAttribute": "commentsPostId"
+    },
+    "expressionValues": {
+        ":connectionAttribute": {
+            "S": "$context.args.postId"
+        }
+    }
+  },
+  "scanIndexForward": true,
+  "limit": $limit,
+  "nextToken": #if( $context.args.nextToken ) "$context.args.nextToken" #else null #end,
+  "index": "gsi-PostComments"
+}
 ```
+
 `Query.commentsUnderBlog.res.vtl`
 ```
-#TODO#
+$util.toJson($ctx.result)
 ```
+
 * Add the resolver resource to the stack by modifying `amplify\api\amplifyTestAPI\stacks\CustomResource.json` under `Resources`
 ```json
 "QueryPostsUnderBlogResolver":{  
@@ -502,15 +526,54 @@ $util.toJson($ctx.result)
          ]
       }
    }
+},
+"QueryCommentsUnderPostResolver":{  
+   "Type":"AWS::AppSync::Resolver",
+   "Properties":{  
+      "ApiId":{  
+         "Ref":"AppSyncApiId"
+      },
+      "DataSourceName":"CommentTable",
+      "TypeName":"Query",
+      "FieldName":"commentsUnderPost",
+      "RequestMappingTemplateS3Location":{  
+         "Fn::Sub":[  
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.commentsUnderPost.req.vtl",
+            {  
+               "S3DeploymentBucket":{  
+                  "Ref":"S3DeploymentBucket"
+               },
+               "S3DeploymentRootKey":{  
+                  "Ref":"S3DeploymentRootKey"
+               }
+            }
+         ]
+      },
+      "ResponseMappingTemplateS3Location":{  
+         "Fn::Sub":[  
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.commentsUnderPost.res.vtl",
+            {  
+               "S3DeploymentBucket":{  
+                  "Ref":"S3DeploymentBucket"
+               },
+               "S3DeploymentRootKey":{  
+                  "Ref":"S3DeploymentRootKey"
+               }
+            }
+         ]
+      }
+   }
 }
 ```
 * Compile graphql and see if the changes done till this point doesnt have any errors
 ```
 $ amplify api gql-compile
 ```
-#TODO# - Testing
-
-* Modify `amplify\api\amplifyTestAPI\stacks\CustomResource.json` to add resources for the resolvers that are created 
+* If there are no errors, proceed to push the changes and when prompted to generate code, choose `Y`
+```
+$ amplify push
+```
+* 
 
 ## Update GraphQL Schema by adding non-null field to existing type which has DynamoDB table already created with data in it
 * Lets update the schema for type `Blog` to add not-null type `Category` which is an enum
