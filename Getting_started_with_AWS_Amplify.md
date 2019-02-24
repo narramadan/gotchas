@@ -416,7 +416,7 @@ type Query {
   postsUnderBlog(blogId: ID!, limit: Int, nextToken: String): Posts
 
   # Fetch comments for a specific post
-  commentsUnderBlog(postId: ID!, limit: Int, nextToken: String): Comments
+  commentsUnderPost(postId: ID!, limit: Int, nextToken: String): Comments
 }
 ```
 * Add the below resolvers for the queries that are added as above under `amplify\api\amplifyTestAPI\resolvers`
@@ -573,66 +573,23 @@ $ amplify api gql-compile
 ```
 $ amplify push
 ```
-* 
+* This should update the resources with the new added queries and custom resolvers on AWS for dev environment.
+* Checkout prod environment using below command
+```
+$ amplify env checkout prod
+```
+* Run `amplify push` and proceed to push the changes and when prompted to generate code, choose `Y`
+* This should update the resources with the new added queries and custom resolvers on AWS for prod environment.
+* Run the below command to commit the changes and push them to master branch
+```
+$ git add *
 
-## Update GraphQL Schema by adding non-null field to existing type which has DynamoDB table already created with data in it
-* Lets update the schema for type `Blog` to add not-null type `Category` which is an enum
-* Swicth to dev environment by running below command
-```
-$ amplify env checkout dev
-```
-* Update schema as below in `amplify\backend\api\amplifyTestAPI\schema.graphql`
-```
-type Blog @model {
-  id: ID!
-  name: String!
-  posts: [Post] @connection(name: "BlogPosts")
-  category: Category!
-}
-type Post @model {
-  id: ID!
-  title: String!
-  blog: Blog @connection(name: "BlogPosts")
-  comments: [Comment] @connection(name: "PostComments")
-}
-type Comment @model {
-  id: ID!
-  content: String
-  post: Post @connection(name: "PostComments")
-}
+$ git commit -m "Added two queries and custom resolvers to handle the queries"
 
-enum Category {
-  Technology
-  Science
-  Politics
-  Books
-}
+$ git push origin master
 ```
-* Compile GraphQL once the schema is updated to verify if there are any compilation issues
-```
-$ amplify api gql-compile
-```
-* Now check for amplify status, we will see `API` is changed and needs an `Update` as below
-```
-$ amplify status
+* Pushing to master branch will start building & deploying AWS Amplify project automatically.
 
-Current Environment: dev
-
-| Category  | Resource name              | Operation | Provider plugin   |
-| --------- | -------------------------- | --------- | ----------------- |
-| Api       | amplifyTestAPI             | Update    | awscloudformation |
-| Auth      | amplifytestcognitouserpool | No Change | awscloudformation |
-| Analytics | awsamplifytest             | No Change | awscloudformation |
-| Hosting   | S3AndCloudFront            | No Change | awscloudformation |
-```
-* Push the changes and accept with `Y` when prompted for update code & GraphQL statements generation
-```
-$ amplify push
-```
-* Modify the code to include `Category` when creating the `Blog` as below in `app.js`
-```
-#TODO# : Getting Errors
-```
 ## Using Lambda Functions
 Lets notify all authenticated users when there is a new post is created
 #TODO# - Yet to do
@@ -640,6 +597,19 @@ Lets notify all authenticated users when there is a new post is created
 ## Delete Amplify resources
 Delete all AWS resources that are created for specific environent
 #TODO# - Yet to do
+
+## Troubleshooting common issues
+### Error: An error occurred when pushing the resources to the cloud
+If this error is thrown when running `amplify push`, check cloudformation stacks that got executed with status `UPDATE_ROLLBACK_COMPLETE`. I got this error when the query name I provided in `schema.graphql` is not in sync with what I provided in `CustomResources.json`. Below are the steps how I debugged this issue:
+* Click on one of the stack and see Overview section below for `View Failure event details`. Click on it.
+* This would show `Events` tab.
+* Check for events with status `CREATE_FAILED` and `UPDATE_ROLLBACK_IN_PROGRESS`.
+* Reason shows the exact cause of error in details which we can fix accordingly.
+
+### Adding `Non-null` field to already provisioned DynamoDB table with records
+Add a new Non-null field to one of the Type for which there is DynamoDB table already provisioned and exists data in it. When you try to query the table, exception will be thrown as records already existsing in table does not have data for the non-null field.
+
+Below are steps how this can be resolved with #TODO#
 
 ## References
 * [GraphQL Schema Definition Language](https://facebook.github.io/graphql/June2018/)
