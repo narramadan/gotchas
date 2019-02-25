@@ -628,10 +628,22 @@ enum Category {
 This exception can be resolved by overriding resolver that is auto-generated as mentioned in [Amplify Doc](https://aws-amplify.github.io/docs/cli/graphql?sdk=js#overwrite-a-resolver-generated-by-the-graphql-transform). 
 * Create `Query.listBlogs.res.vtl` under resolvers folder and copy the content as below
 ```
-#TODO#
+#**
+Overriding default resolver for listblogs
+* When Category is null, set default to Books
+*#
+#if ( ! $ctx.result.items)
+    $util.toJson([])
+#else
+    #foreach($blog in $ctx.result.items)
+        ## If category is null, set default to Books
+        #set($blog['category'] = $util.defaultIfNull($blog.category, "Books"))
+    #end
+    $util.toJson($ctx.result)
+#end
 ```
 * Push changes using `amplify push`
-* Now test list all blogs. This should return default value for category when it is null.
+* Now test list all blogs. This should return default value `Books` for category when it is null.
 
 ## References
 * [GraphQL Schema Definition Language](https://facebook.github.io/graphql/June2018/)
