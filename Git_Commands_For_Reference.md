@@ -56,6 +56,8 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 `git add -u` - Consider files or folders deleted to be committed with `commit` and pushed with `push` commands
 
 ## See Commit History
+`git log --oneline` - To see all commits one line per commit
+
 `git log --branches --not --remotes` - To see all commits on all branches that aren't pushed yet
 
 `git log --branches --not --remotes --simplify-by-decoration --decorate --oneline` - To see the most recent commit on each branch, and the branch names
@@ -69,6 +71,10 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 ## Working with Branches & Tags
 
 `git branch -v` - Will show, for each local branch, whether it's "ahead" or not.
+
+`git tag` - Lists all tags
+
+`git tag --list` - 
 
 ### Fetch
 `git fetch` - fetch branches and/or tags from one or more repositories
