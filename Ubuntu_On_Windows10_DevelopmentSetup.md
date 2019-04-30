@@ -41,3 +41,5 @@ export AWS_SECRET_ACCESS_KEY=s8PWQJAkBeXXXXXX/X/zpWk/Fo02XXXXXXX
 ```serverless invoke -f hello -l```
 
 ```serverless logs -f hello -t```
+
+```serverless remove```
