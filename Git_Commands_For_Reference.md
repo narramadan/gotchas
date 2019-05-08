@@ -111,6 +111,13 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 ## Revert changes
 
+### Clean
+`git clean -n` - Lists untracked files which will be cleaned
+
+`git clean -f` - Will delete untracked files
+
+`git clean -f -d` or `git clean -fd` - Will delete untracked directories and files
+
 ## Stashing your work
 
 ## Git Inteview Questions
