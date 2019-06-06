@@ -118,6 +118,12 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 `git clean -f -d` or `git clean -fd` - Will delete untracked directories and files
 
+`git clean -d -x -f` - Will remove untracked files (-f), including directories (-d) and files ignored by git (-x).
+
+`git clean -d -x -i` - Will start the interactive mode (-i) of the untracked files, including directories (-d) and files ignored by git (-x)
+
+`git reset --hard` - To reset the entire repository to the last committed state 
+
 ## Stashing your work
 
 ## Git Inteview Questions
