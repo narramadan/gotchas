@@ -122,7 +122,9 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 `git clean -d -x -i` - Will start the interactive mode (-i) of the untracked files, including directories (-d) and files ignored by git (-x)
 
-`git reset --hard` - To reset the entire repository to the last committed state 
+`git reset --hard` - To reset the entire repository to the last committed state in local branch 
+
+`git reset --hard origin/<remote-branch>` - To reset the entire repository to the last committed state from remote branch
 
 ## Stashing your work
 
