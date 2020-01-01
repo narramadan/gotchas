@@ -133,6 +133,14 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 ## Stashing your work
 
+## miscellaneous
+### Rempove File/Folder from git repository without deleting it from local filesystem
+Below are the series of steps to achieve this
+* Add entries of the file or folder in `.gitignore` so the will be excluded from the repsotory 
+* `git rm -r --cached File-or-FolderName` - Delete the entries of the file or folder from git cache
+* `git commit -m "Removed folder from repository"` - Commit the Changes
+* `git push` - Push the changes
+
 ## Git Inteview Questions
 
 ### Git Cherry Pick vs Rebase
