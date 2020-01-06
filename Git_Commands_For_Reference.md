@@ -134,6 +134,16 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 ## Stashing your work
 
 ## miscellaneous
+### Add Remote Git Repository to the local repository
+Below are the series of steps to achieve this
+* `git remote add origin <REPO_URL>` - Add remote git repo to the local repository
+* `git remote -v` - Verify if the remote git repo is added. This should display the below messages in the console
+```
+> origin <REPO_URL> (fetch)
+> origin <REPO_URL> (push)
+```
+* `git push --set-upstream origin <BRANCH>` - Set the default upstream origin branch and push the changes to repo
+
 ### Rempove File/Folder from git repository without deleting it from local filesystem
 Below are the series of steps to achieve this
 * Add entries of the file or folder in `.gitignore` so the will be excluded from the repsotory 
