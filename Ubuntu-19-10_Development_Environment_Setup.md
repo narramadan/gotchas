@@ -6,7 +6,7 @@
 sudo apt install curl
 ```
 
-## Install wger
+## Install wget
 
 ```
 sudo apt-get install wget
@@ -220,8 +220,8 @@ $ sudo ufw default allow routed
 * Visual Studio Code
 * IntelliJ IDEA Community
 
-## Install MariaDB
-
-## Install Mongo DB
-
 ## Install Postman
+
+```
+$ sudo snap install postman
+```
