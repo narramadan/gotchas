@@ -146,13 +146,15 @@ $ sudo apt install git
 $ git --version
 ```
 
-## Install Nodejs
+## Install Nodejs 12
 
 ```
-$ curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 $ sudo apt-get install -y npm
 ```
+This should install Node v12.x.x and NPM v6.x.x.
+
 * Verify version
 
 ```
