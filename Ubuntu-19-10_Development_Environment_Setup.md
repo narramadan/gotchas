@@ -160,6 +160,13 @@ $ node --version
 $ npm --version
 ```
 
+* Install Yarn
+
+```
+$ sudo npm install -g yarn
+$ yarn -v
+```
+
 ## Install Docker
 
 ```
@@ -224,4 +231,14 @@ $ sudo ufw default allow routed
 
 ```
 $ sudo snap install postman
+```
+
+## Create work folder and set permissions
+
+```
+$ cd /home/<user>
+
+$ sudo mkdir work
+
+$ sudo chmod -R a+rwX work/
 ```
