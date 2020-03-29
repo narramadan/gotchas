@@ -146,6 +146,15 @@ $ sudo apt install git
 $ git --version
 ```
 
+### Configure git credentials
+
+```
+$ git config --global user.name "Madan Narra"
+$ git config --global credential.helper store
+$ git pull
+$ provide credentials when prompted
+```
+
 ## Install Nodejs 12
 
 ```
