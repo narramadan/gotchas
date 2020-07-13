@@ -138,6 +138,19 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 ## Stashing your work
 
+## Revert to previous pushed commit
+
+Follow the below commands in sequence to revert current working branch to previously pushed commit
+
+```
+$ git reset --hard COMMIT_ID
+$ git reset HEAD~1
+$ git stash
+$ git add .
+$ git commit -m "your new commit message here"
+$ git push --force
+```
+
 ## miscellaneous
 ### Add Remote Git Repository to the local repository
 Below are the series of steps to achieve this
