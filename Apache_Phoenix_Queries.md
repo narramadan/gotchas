@@ -15,3 +15,14 @@
 `CREATE INDEX idx_last_updated_date ON sales.opportunity(last_updated_date DESC)` - Creates a secondary index on a table or view.  The index is kept in sync with the table as data changes.  At query time, the optimizer will use the index if it contains all columns referenced in the query to produce an efficient execution plan.
 
 `!quit` - quites SQLLine client
+
+### Export query execution output to csv
+
+* After connecting to phoenix with sqlline.py:
+* `!outputformat csv`
+* `!record data.csv`
+* `select * from system.catalog limit 10;`
+* `!record`
+* `!quit`
+* data.csv will be created in your home directory
+* cleanup file removing total count written at end of file before processing csv file
