@@ -162,6 +162,12 @@ Below are the series of steps to achieve this
 ```
 * `git push --set-upstream origin <BRANCH>` - Set the default upstream origin branch and push the changes to repo
 
+### Changing Remote Git Repository url to the local repository
+Below are the series of steps to point the local repo to new remote repo
+* `git remote -v` - Verify the current remote repo it is pointing to
+* `git remote set-url origin <NEW_REPO_URL>` - run the command with new repo url
+* `git remote -v` - Verify if the remote repo is pointing to the new repo
+
 ### Rempove File/Folder from git repository without deleting it from local filesystem
 Below are the series of steps to achieve this
 * Add entries of the file or folder in `.gitignore` so the will be excluded from the repsotory 
