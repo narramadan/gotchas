@@ -1,0 +1,2 @@
+# Gotchas for using SQLite
+
