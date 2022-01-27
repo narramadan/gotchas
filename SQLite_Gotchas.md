@@ -16,6 +16,8 @@ Download SQLite3 and extract to your desired location. Open the location in term
 
 `sqlite> .dbinfo` - Shows database stats & information
 
+`sqlite> .quit` - Exit the shell
+
 ## Using HeidiSQL
 
 Explore SQLite database using HeidiSQL, which is free & opensoure Database explorer which supports SQLite.
