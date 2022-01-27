@@ -10,6 +10,12 @@ Download SQLite3 and extract to your desired location. Open the location in term
 
 `sqlite> .tables` - List tables
 
+`sqlite> .help` - List all possible commands
+
+`sqlite> .show` - Show settings for the current database
+
+`sqlite> .dbinfo` - Shows database stats & information
+
 ## Using HeidiSQL
 
 Explore SQLite database using HeidiSQL, which is free & opensoure Database explorer which supports SQLite.
