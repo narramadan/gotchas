@@ -8,6 +8,7 @@
 * `mvn clean install` - Use this command to invoke the clean lifecycle and the build lifecycle.
 * `mvn clean deploy` - Use this command to cleanly build and deploy artifacts into the shared repository
 * `mvn install -Dmaven.test.skip=true` - Use this command to skip compiling and invoking tests during build phase
+* `mvn dependency:tree -Dverbose -Dincludes=log4j:log4j` - Use this command to get the dependency tree for the provided artifact. This is helpful to know which library is trying to refer to log4j indirectly.
 
 ## Build Lifecycle Phases
 * `mvn validate` - Validate the project is correct and all necessary information is available
