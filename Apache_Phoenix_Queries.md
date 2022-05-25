@@ -6,6 +6,8 @@
 
 `!describe {table name}` - detailed description of the table
 
+`!primarykeys {table name}` - Get primary keys defined for the table
+
 `DROP TABLE IF EXISTS my_table;` - drops the table named my_table
 
 `SELECT * FROM my_table LIMIT 1000;` - selects all columns from my_table limiting the result set to 1000 records
