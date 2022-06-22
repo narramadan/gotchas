@@ -18,6 +18,10 @@
 
 `!quit` - quites SQLLine client
 
+### Load CSV into table
+
+`python /usr/hdp/current/phoenix-client/bin/psql.py -t PHOENIX_TABLE /tmp/data.csv`
+
 ### Export query execution output to csv
 
 * After connecting to phoenix with sqlline.py:
