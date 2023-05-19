@@ -1,5 +1,7 @@
 # Development Environment setup on Macbook
 
+[Mac Cheat Sheets](https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/)
+
 ## Browsers
 * Microsoft Edge
 * Google chrome
