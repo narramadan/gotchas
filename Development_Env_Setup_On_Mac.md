@@ -93,6 +93,10 @@ $ (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/madan/.zpro
 
 Run the below to verify if brew is installed successfully and available in the path for subsequent commands
 
+```
+$ brew search java
+```
+
 ### Curl
 
 ```
@@ -101,7 +105,21 @@ $ brew install curl
 $ curl --help
 ```
 
+### SDKMAN
+
+```
+$ curl -s "https://get.sdkman.io" | bash
+
+$ source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+$ sdk version
+
+$ sdk list
+```
+
 ### Java
+
+#### Elcipse Temurin Distro 
 
 Install latest version of OpenJDK distribution from [Eclipse Temurin](https://adoptium.net/temurin/releases/).
 
@@ -110,6 +128,44 @@ https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.7%2B7/
 ```
 $ java --version
 ```
+
+To uninstall, run the below command
+
+`$ rm -rf /Library/Java/JavaVirtualMachines/temurin-17.jdk`
+
+#### Using SDKMAN
+
+Identify and choose the version of Java that you wish to install 
+
+```
+$ sdk list java
+
+$ sdk install java 8.0.372-zulu
+
+$ java -version
+```
+
+Install another version of Java. Post installation, prompt would appear to choose this version as default. Opt in accordingly.
+
+```
+$ sdk install java 11.0.19-zulu
+```
+
+To switch between versions of Java, use the below commands
+
+```
+# See which versions are installed
+$ sdk list java 
+
+$ sdk use java 11.0.19-zulu
+```
+
+To set a permanent default, use the sdk default command. For instance, to make JDK 11 the default, type:
+
+```
+$ sdk default java 11.0.0-open
+```
+
 
 ### Maven
 
