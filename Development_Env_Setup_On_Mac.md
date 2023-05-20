@@ -26,6 +26,20 @@ Run the below command post installing Tabby terminal, for the terminal to instan
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+Post installing `zsh`, need to do the below to load bash alises into zsh.
+
+```
+$ vi ~/.zshrc
+
+Copy below at the bottom of the file
+
+source ~/.bash_profile
+
+:wq
+
+$ source ~/.zshrc
+```
+
 ### Sublime Text
 
 - Use this as replaced for Notepad++ on Windows
