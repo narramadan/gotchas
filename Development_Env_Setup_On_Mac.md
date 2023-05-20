@@ -10,9 +10,25 @@
 * Microsoft Teams
 
 ## Utilities
-* Flycut - Clipboard manager - Can be installed from appstrore.
-* [Tabby terminal](https://tabby.sh/) - Install latest macos package(tabby-1.0.197-macos-arm64.pkg)
-* Sublime Text
+### Flycut - Clipboard manager
+
+- Can be installed from appstrore.
+
+### [Tabby terminal](https://tabby.sh/)
+
+Install latest macos package(tabby-1.0.197-macos-arm64.pkg)
+
+To display git branch names and other stylings, install [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+
+Run the below command post installing Tabby terminal, for the terminal to instantly change with default theme.
+
+```
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+### Sublime Text
+
+- Use this as replaced for Notepad++ on Windows
 
 ## Applications
 
