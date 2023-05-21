@@ -242,3 +242,9 @@ $ npm install -g yarn
 
 $ yarn -v
 ```
+
+## MacOS Customizations
+
+### Choose Open with VSCode for selected folder from finder
+
+https://stackoverflow.com/questions/64040393/open-a-folder-in-vscode-through-finder-in-macos
