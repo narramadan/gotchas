@@ -14,6 +14,10 @@
 
 - Can be installed from appstrore.
 
+### Boop - Developer Tool
+
+- Can be installed from appstrore.
+
 ### [Tabby terminal](https://tabby.sh/)
 
 Install latest macos package(tabby-1.0.197-macos-arm64.pkg)
