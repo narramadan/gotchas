@@ -44,6 +44,10 @@ $ source ~/.zshrc
 
 - Use this as replaced for Notepad++ on Windows
 
+### Json Viewer
+
+Native Mac app to visualize, validate and format JSON datasets - https://jsonviewer.app/
+
 ## Applications
 
 ### IntelliJ IDEA
