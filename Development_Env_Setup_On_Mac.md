@@ -247,6 +247,14 @@ $ npm install -g yarn
 $ yarn -v
 ```
 
+### Mockoon
+
+[Mockoon](https://mockoon.com/) is the easiest and quickest way to design and run mock REST APIs
+
+```
+brew install --cask mockoon
+```
+
 ## MacOS Customizations
 
 ### Choose Open with VSCode for selected folder from finder
