@@ -19,3 +19,12 @@
 
 ## IDE Shortcuts
 * [Eclipse & IntelliJ Shortcuts](https://github.com/narramadan/gotchas/blob/master/Eclipse_IntelliJ_Shortcuts.md)
+
+## Look at these - Priority
+
+* https://github.com/awslabs/aws-code-habits
+* https://github.com/kaizimmerm/spring-boot-basics/blob/master/.devcontainer/devcontainer.json
+* https://ragunathrajasekaran.medium.com/vscode-remote-container-springboot-config-7a8773cbfa63
+* https://www.youtube.com/watch?v=SYCeM-Q6nRs
+* https://localstack.cloud/
+
