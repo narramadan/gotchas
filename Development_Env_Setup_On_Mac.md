@@ -264,3 +264,19 @@ brew install --cask mockoon
 ### Choose Open with VSCode for selected folder from finder
 
 https://stackoverflow.com/questions/64040393/open-a-folder-in-vscode-through-finder-in-macos
+
+### Change default command actions by setting aliases
+
+Modify default behaviour of the command by passing additional options and setting the alias.
+
+Run 'vi ~/.bash_profile' and add the below as needed
+
+#### ls
+
+Change behaviour of ls by passing `-a` to show list of all files by default - https://wpbeaches.com/make-an-alias-in-bash-or-zsh-shell-in-macos-with-terminal/
+
+```
+alias ls='ls -lah'
+```
+
+To apply the changes in the current terminal, run `source ~/.bash_profile`
