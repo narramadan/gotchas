@@ -259,6 +259,16 @@ $ yarn -v
 brew install --cask mockoon
 ```
 
+### Meld
+
+Meld is Visual diff and merge tool, which helps you compare files, directories, and version controlled projects. It provides two- and three-way comparison of both files and directories, and has support for many popular version control systems
+
+```
+brew install --cask meld
+```
+
+meld is not verified for malwere and will restrict opening the app. Select option to open meld anyway from `System Settings -> privacy & Secuirty`
+
 ## MacOS Customizations
 
 ### Choose Open with VSCode for selected folder from finder
