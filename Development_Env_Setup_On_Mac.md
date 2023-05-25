@@ -290,3 +290,34 @@ alias ls='ls -lah'
 ```
 
 To apply the changes in the current terminal, run `source ~/.bash_profile`
+
+## Additional tools and configurations
+
+### Kubeshark
+
+[Kubeshark](https://kubeshark.co/) is the API Traffic Analyzer for Kubernetes.
+
+Ensure Kubernetes is installed and configured to try out kubeshark.
+
+Run the below commands to install kubeshark
+
+```
+$ brew tap kubeshark/kubeshark
+
+$ brew install kubeshark
+
+$ kubeshark version
+```
+
+Run below command to start kubeshark and to showup the access url for kubeshark
+
+```
+$ kubeshark tap --proxy-host 0.0.0.0
+```
+
+Run below command to clean all relics of Kubeshark from your cluster when using the CLI
+
+```
+$ kubeshark clean
+```
+
