@@ -321,3 +321,11 @@ Run below command to clean all relics of Kubeshark from your cluster when using 
 $ kubeshark clean
 ```
 
+### Notion AI
+
+[Notion](https://www.notion.so/product) is the connected workspace where better, faster work happens. Now with AI
+
+### AutoRegex
+
+[AutoRegex](https://www.autoregex.xyz/) - Effortless conversions from English to RegEx
+
