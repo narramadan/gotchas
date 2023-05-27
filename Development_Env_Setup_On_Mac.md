@@ -328,4 +328,3 @@ $ kubeshark clean
 ### AutoRegex
 
 [AutoRegex](https://www.autoregex.xyz/) - Effortless conversions from English to RegEx
-
