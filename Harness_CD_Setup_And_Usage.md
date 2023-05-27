@@ -28,7 +28,9 @@ Running `docker-compose ps` should show the below services provisioned.
 
 ![image](https://github.com/narramadan/gotchas/assets/3821456/bfb1a2d9-584a-479f-881e-1c665a5f18ff)
 
+## Usage
 
+Open http://localhost/#/signup and complete the registration form to start using Harness CD. Signed up user will be created as admin user.
 
 ## Cleanup
 
@@ -43,3 +45,9 @@ Delete unused images
 ```
 $ docker image prune -a
 ```
+
+## Troubleshooting
+
+### 502 Bad Gateway Error
+
+if Harness signup page is failing with `502 Bad Gateway`, then follow [instructions](https://github.com/harness/harness-cd-community/issues/79) to comment out `mongo` configuration in `docker-compose.yml` file.
