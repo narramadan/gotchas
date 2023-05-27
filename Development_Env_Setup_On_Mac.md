@@ -238,6 +238,8 @@ $ brew install mitmproxy
 
 ### Node
 
+#### Install latest version of Node
+
 ```
 $ brew install node
 
@@ -248,6 +250,29 @@ $ npm -v
 $ npm install -g yarn
 
 $ yarn -v
+```
+#### Install older version of Node
+
+```
+$ brew install node@16
+```
+
+#### Switch between node versions
+
+```
+$ brew unlink node
+
+$ brew link node@16
+
+$ echo 'export PATH="/usr/local/opt/node@16/bin:$PATH"' >> ~/.bash_profile
+or
+$ echo 'export PATH="/opt/homebrew/opt/node@16/bin:$PATH"' >> ~/.zshrc
+
+$ source ~/.bash_profile
+or 
+$ source ~/.zshrc
+
+$ node -v
 ```
 
 ### Mockoon
