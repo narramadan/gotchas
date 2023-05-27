@@ -204,7 +204,6 @@ To set a permanent default, use the sdk default command. For instance, to make J
 $ sdk default java 11.0.0-open
 ```
 
-
 ### Maven
 
 ```
@@ -290,6 +289,16 @@ alias ls='ls -lah'
 ```
 
 To apply the changes in the current terminal, run `source ~/.bash_profile`
+
+#### watch
+
+Watch will run a command repeatedly which can turn any command line program output into a “real time” display.
+
+Run below to install watch command
+
+```
+$ brew install watch
+```
 
 ## Additional tools and configurations
 
