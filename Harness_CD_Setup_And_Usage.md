@@ -11,6 +11,11 @@ On M2 Chip, we need to install Rosetta which enables a Mac with Apple silicon to
 ```
 $ /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 ```
+Enable the below configurations in Docker Desktop, which will enable using Rosetta on M2.
+
+![image](https://github.com/narramadan/gotchas/assets/3821456/cc0078a2-7e96-4d3e-827e-805aa09062ae)
+
+![image](https://github.com/narramadan/gotchas/assets/3821456/63e49ae1-fa99-492f-8283-e8f0b4cf41ee)
 
 ## Installation and Configuration
 
@@ -31,6 +36,8 @@ Running `docker-compose ps` should show the below services provisioned.
 ## Usage
 
 Open http://localhost/#/signup and complete the registration form to start using Harness CD. Signed up user will be created as admin user.
+
+
 
 ## Cleanup
 
