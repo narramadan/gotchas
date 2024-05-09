@@ -311,4 +311,126 @@ After swap: 20 10
 After calling function 20 10
 ```
 
-page 211
+## Function types
+
+Functions have a data type in Go, which means they can be assigned to variables and used as function parameters, arguments, and results.
+
+```
+package main
+
+import "fmt"
+
+func calcWithTax(price float64) float64 {
+    return price + (price * 0.2)
+}
+func calcWithoutTax(price float64) float64 {
+    return price
+}
+
+func main() {
+
+    products := map[string]float64 {
+        "Kayak" : 275,
+        "Lifejacket": 48.95,
+    }
+
+    for product, price := range products {
+        var calcFunc func(float64) float64
+        if (price > 100) {
+            calcFunc = calcWithTax
+        } else {
+            calcFunc = calcWithoutTax
+        }
+        totalPrice := calcFunc(price)
+        fmt.Println("Product:", product, "Price:", totalPrice)
+    }
+}
+```
+
+We can use function types
+* As Arguments to other functions
+```
+func printPrice(product string, price float64, calculator func(float64) float64 ) {
+    fmt.Println("Product:", product, "Price:", calculator(price))
+}
+```
+*  As Results
+```
+func selectCalculator(price float64) func(float64) float64 {
+    if (price > 100) {
+        return calcWithTax
+    }
+    return calcWithoutTax
+}
+```
+* Creating Function Type Aliases
+```
+type calcFunc func(float64) float64
+
+func printPrice(product string, price float64, calculator calcFunc) {
+    fmt.Println("Product:", product, "Price:", calculator(price))
+}
+func selectCalculator(price float64) calcFunc {
+    if (price > 100) {
+        return calcWithTax
+    }
+    return calcWithoutTax
+}
+```
+* Literal Function Syntax
+```
+func selectCalculator(price float64) calcFunc {
+    withTax calcFunc = func (price float64) float64 {
+        return price + (price * 0.2)
+    }
+    // or shorthand syntax
+    withoutTax := func (price float64) float64 {
+        return price
+    }
+}
+printPrice(product, price, selectCalculator(price))
+```
+* Function Closures
+Functions defined using the literal syntax can reference variables from the surrounding code, a feature known as closure.
+Refer online for example
+
+## Structs
+
+```
+type Product struct {
+    name, category string
+    price float64
+}
+
+kayak := Product {
+    name: "Kayak",
+    category: "Watersports",
+    price: 275,
+}
+
+var lifejacket = new(Product) ~ var lifejacket = &Product{}
+
+var kayak = Product { "Kayak", "Watersports", 275.00 }
+
+func newProduct(name, category string, price float64) *Product {
+    return &Product{name, category, price}
+}
+```
+
+## Methods & Interfaces
+
+### Method
+```
+type Product struct {
+    name, category string
+    price float64
+}
+
+func (product *Product) printDetails() {
+    fmt.Println("Name:", product.name, "Category:", product.category,"Price", product.price)
+}
+
+p.printDetails()
+```
+
+pg 275
