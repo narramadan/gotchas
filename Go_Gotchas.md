@@ -434,3 +434,29 @@ p.printDetails()
 ```
 
 pg 275
+
+## Code block for scenarios
+
+### Create array with field value from another struct array
+
+```
+type Person struct {
+    Name string
+    Age  int
+}
+
+func main() {
+    people := []Person{
+        {Name: "Alice", Age: 30},
+        {Name: "Bob", Age: 25},
+        {Name: "Charlie", Age: 35},
+    }
+
+    names := make([]string, len(people))
+    for i, person := range people {
+        names[i] = person.Name
+    }
+
+    fmt.Println(names)
+}
+```
