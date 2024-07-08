@@ -460,3 +460,17 @@ func main() {
     fmt.Println(names)
 }
 ```
+
+### Filter array objects matching field value
+
+```
+func filterPeopleByAge(people []Person, age int) []Person {
+    var filteredPeople []Person
+    for _, person := range people {
+        if person.Age == age {
+            filteredPeople = append(filteredPeople, person)
+        }
+    }
+    return filteredPeople
+}
+```
