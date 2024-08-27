@@ -97,6 +97,10 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 ### Manage
 
+### Describe
+
+`git describe --exact-match --tags` - Display current checkout tag in local
+
 #### Create new Local Branch
 `git branch <local_branch_name>` - Create a new local branch
 
