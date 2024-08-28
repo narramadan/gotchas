@@ -110,6 +110,13 @@ for _, value := range names {
 }
 ```
 
+* String array to comma-seperated string
+```
+reg := []string {"a","b","c"}
+
+fmt.Println(strings.Join(reg[:], ","))
+```
+
 ### Slices
 
 slices is as a variable-length array because they are useful when you don’t know how many values you need to store or when the number changes over time.
