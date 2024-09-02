@@ -481,3 +481,30 @@ func filterPeopleByAge(people []Person, age int) []Person {
     return filteredPeople
 }
 ```
+
+### Convert timestamp string to date string
+
+```
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	// Given timestamp string
+	timestamp := "2024-08-30T23:26:51.574+0000"
+
+	// Parse the timestamp
+	parsedTime, err := time.Parse("2006-01-02T15:04:05.000-0700", timestamp)
+	if err != nil {
+		fmt.Println("Error parsing timestamp:", err)
+		return
+	}
+
+	// Format the date part
+	datePart := parsedTime.Format("2006-01-02")
+	fmt.Println("Date part:", datePart)
+}
+```
