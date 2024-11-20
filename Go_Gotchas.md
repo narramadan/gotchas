@@ -508,3 +508,66 @@ func main() {
 	fmt.Println("Date part:", datePart)
 }
 ```
+
+### Convert date timestamp in string to "YYYY-MM-DD
+
+```
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"time"
+)
+
+func main() {
+	// Input datetime string
+	input := "2024-07-03T03:19:04.391+00:00"
+
+	// Parse the input string to a time.Time object
+	parsedTime, err := time.Parse(time.RFC3339, input)
+	if err != nil {
+		fmt.Println("Error parsing time:", err)
+		return
+	}
+
+	// Format the time.Time object to "YYYY-MM-DD"
+	output := parsedTime.Format("2006-01-02")
+	fmt.Println("Converted date:", output)
+}
+```
+
+### Convert timestamp string to "YYYY-MM-DD
+
+```
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"time"
+)
+
+func main() {
+	// Input: Unix timestamp as a string
+	input := "1725184744391" // Example: 2024-07-03T03:19:04.391+00:00 in milliseconds
+
+	// Convert the string to an int64
+	timestamp, err := strconv.ParseInt(input, 10, 64)
+	if err != nil {
+		fmt.Println("Error parsing timestamp:", err)
+		return
+	}
+
+	// Convert milliseconds to seconds and nanoseconds
+	seconds := timestamp / 1000
+	nanoseconds := (timestamp % 1000) * int64(time.Millisecond)
+
+	// Create a time.Time object
+	t := time.Unix(seconds, nanoseconds)
+
+	// Format the time to "YYYY-MM-DD"
+	output := t.Format("2006-01-02")
+	fmt.Println("Converted date:", output)
+}
+```
