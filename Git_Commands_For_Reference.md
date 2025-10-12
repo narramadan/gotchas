@@ -10,6 +10,12 @@
 
 ## Setup
 
+Install Git on Windows
+
+```
+$ winget install --id Git.Git -e --source winget
+```
+
 For [Windows](https://git-scm.com/download/win)
 
 Which version of Git for Windows are you using? Is it 32-bit or 64-bit?
