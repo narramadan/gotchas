@@ -21,6 +21,17 @@ If Committing files with name more then 260 characters limit on windows, It thro
 `
 git config --system core.longpaths true
 `
+### Setup SSH Key
+
+Execute below commands to generate ssh file. Copy the content from .pub file to github ssh keys.
+
+```
+$ ssh -v
+
+$ ssh-keygen -t ed25519 -C "narra.madan@outlook.com"
+
+$ cat  C:\Users\narra/.ssh/id_ed25519.pub
+```
 
 ## Configuration
 `git config --global user.name "<name of the user>"` - Configure global User Name
