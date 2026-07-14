@@ -86,7 +86,23 @@ Configurations are stored in `C:\ProgramData\Git\config` on Windows and `/etc/gi
 
 `git reflog` - Reference logs, or "reflogs", record when the tips of branches and other references were updated in the local repository
 
-## Update the local repository
+## Add existing local project folder to existing git repo
+
+```
+cd /path/to/your/existing/folder
+git init -b main
+
+git add .
+git commit -m "Initial commit"
+
+git remote add origin <PASTE_YOUR_REPOSITORY_URL_HERE>
+
+git branch --set-upstream-to=origin/main main
+
+git pull origin main --allow-unrelated-histories
+
+git push -u origin main
+```
 
 ## Push changes to remote repository
 
